@@ -1,0 +1,1135 @@
+[
+  {
+    "category": "Escrever código melhor",
+    "color": "#d13b42",
+    "items": [
+      {
+        "n": 1,
+        "rank": 1,
+        "name": "Superpowers",
+        "desc": "Framework de skills e metodologia de desenvolvimento de software para agentes de codigo, criado por obra. Funciona com Claude Code e outros.",
+        "url": "github.com/obra/superpowers",
+        "kind": "plugin",
+        "install": "/plugin marketplace add obra/superpowers"
+      },
+      {
+        "n": 2,
+        "rank": 2,
+        "name": "wshobson/agents",
+        "desc": "Marketplace de plugins agenticos com colecao grande de subagents prontos para producao para Claude Code e outras ferramentas.",
+        "url": "github.com/wshobson/agents",
+        "kind": "plugin",
+        "install": "git clone https://github.com/wshobson/agents.git"
+      },
+      {
+        "n": 3,
+        "rank": 3,
+        "name": "andrej-karpathy-skills",
+        "desc": "Diretrizes de codigo inspiradas em Andrej Karpathy empacotadas como skill para Claude Code, Codex, Cursor e outros agentes.",
+        "url": "github.com/swarmclawai/andrej-karpathy-skills",
+        "kind": "skill",
+        "install": "npx @swarmclawai/andrej-karpathy-skills"
+      },
+      {
+        "n": 4,
+        "rank": 4,
+        "name": "andrej-karpathy-skills (forrestchang)",
+        "desc": "Um arquivo CLAUDE.md para melhorar o comportamento do Claude Code, baseado nas observacoes de Karpathy sobre erros comuns de LLMs ao programar.",
+        "url": "github.com/forrestchang/andrej-karpathy-skills",
+        "kind": "skill",
+        "install": ""
+      },
+      {
+        "n": 5,
+        "rank": 5,
+        "name": "code-review-skill",
+        "desc": "Skill completa de revisao de codigo para Claude Code, cobrindo React 19, Vue 3, Rust, TypeScript e mais.",
+        "url": "github.com/awesome-skills/code-review-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/awesome-skills/code-review-skill"
+      },
+      {
+        "n": 6,
+        "rank": 6,
+        "name": "mastering-typescript-skill",
+        "desc": "Skill do Claude Code para TypeScript de nivel enterprise, com padroes type-safe e integracao com React e NestJS.",
+        "url": "github.com/spillwavesolutions/mastering-typescript-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/SpillwaveSolutions/mastering-typescript-skill"
+      },
+      {
+        "n": 7,
+        "rank": 7,
+        "name": "anthropics/skills",
+        "desc": "Repositorio oficial da Anthropic com Agent Skills publicas (PDF, DOCX, design, etc.) para usar com Claude.",
+        "url": "github.com/anthropics/skills",
+        "kind": "skill",
+        "install": ""
+      },
+      {
+        "n": 8,
+        "rank": 8,
+        "name": "Serena MCP",
+        "desc": "Toolkit MCP para programacao com busca e edicao semantica de codigo. Funciona com Claude Code, Cursor e outros.",
+        "url": "github.com/oraios/serena",
+        "kind": "mcp",
+        "install": "claude mcp add serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server",
+        "use": "Peça: busque onde está a função X no código e refatore com edição semântica"
+      },
+      {
+        "n": 9,
+        "rank": 9,
+        "name": "Context7 MCP",
+        "desc": "MCP que injeta documentacao atualizada e exemplos de codigo no contexto do LLM, evitando APIs inventadas.",
+        "url": "github.com/upstash/context7",
+        "kind": "mcp",
+        "install": "claude mcp add context7 -- npx -y @upstash/context7-mcp",
+        "use": "Peça: traga a doc atualizada dessa biblioteca pra você não inventar API"
+      },
+      {
+        "n": 10,
+        "rank": 10,
+        "name": "GitHub MCP",
+        "desc": "Servidor MCP oficial do GitHub que conecta agentes de IA a repositorios, issues e pull requests.",
+        "url": "github.com/github/github-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add github -- npx -y @modelcontextprotocol/server-github",
+        "use": "Peça: liste as issues abertas do meu repositório e abra um pull request"
+      },
+      {
+        "n": 11,
+        "rank": 11,
+        "name": "Playwright MCP",
+        "desc": "Servidor MCP da Microsoft para automacao de navegador via Playwright usando snapshots de acessibilidade.",
+        "url": "github.com/microsoft/playwright-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add playwright -- npx -y @playwright/mcp",
+        "use": "Peça: abra o site no navegador e preencha esse formulário sozinho"
+      },
+      {
+        "n": 12,
+        "rank": 12,
+        "name": "Sentry MCP",
+        "desc": "Servidor MCP do Sentry que da ao agente acesso direto a erros, issues e analise de problemas.",
+        "url": "github.com/getsentry/sentry-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add --transport http sentry https://mcp.sentry.dev/mcp",
+        "use": "Peça: liste os erros recentes do Sentry e me explique a causa raiz"
+      },
+      {
+        "n": 115,
+        "rank": 13,
+        "name": "TDD Skill",
+        "desc": "Skill de TDD com agentes: cicla testa-falha-passa-refatora e separa quem escreve teste de quem implementa.",
+        "url": "github.com/glebis/claude-skills",
+        "kind": "skill",
+        "install": "npx skills add glebis/claude-skills",
+        "use": ""
+      },
+      {
+        "n": 116,
+        "rank": 14,
+        "name": "minimal-claude",
+        "desc": "Detecta seu stack, configura lint e cria o comando /fix que dispara agentes pra corrigir os erros do projeto.",
+        "url": "github.com/KenKaiii/minimal-claude",
+        "kind": "plugin",
+        "install": "/plugin marketplace add KenKaiii/minimal-claude",
+        "use": ""
+      },
+      {
+        "n": 117,
+        "rank": 15,
+        "name": "VSCode MCP",
+        "desc": "Entrega os erros de tipo e diagnósticos do VS Code em tempo real, sem esperar o tsc/eslint rodar inteiro.",
+        "url": "github.com/tjx666/vscode-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add vscode -- npx -y @vscode-mcp/vscode-mcp-server@latest",
+        "use": "Peça: rode o diagnóstico neste arquivo e me mostre os erros de tipo"
+      }
+    ]
+  },
+  {
+    "category": "Automatizar tarefas",
+    "color": "#ff8a4c",
+    "items": [
+      {
+        "n": 16,
+        "rank": 1,
+        "name": "Superpowers",
+        "desc": "Marketplace curado de plugins para o Claude Code, incluindo o Superpowers com mais de 20 skills testadas.",
+        "url": "github.com/obra/superpowers-marketplace",
+        "kind": "plugin",
+        "install": "/plugin marketplace add obra/superpowers-marketplace"
+      },
+      {
+        "n": 17,
+        "rank": 2,
+        "name": "Commit Commands",
+        "desc": "Plugin oficial que automatiza operacoes de git com comandos slash como /commit e /commit-push-pr.",
+        "url": "github.com/anthropics/claude-code/tree/main/plugins/commit-commands",
+        "kind": "plugin",
+        "install": "/plugin install commit-commands"
+      },
+      {
+        "n": 18,
+        "rank": 3,
+        "name": "claude-code-action",
+        "desc": "Action oficial do GitHub que roda o Claude Code em PRs e issues para responder perguntas e implementar mudancas de codigo.",
+        "url": "github.com/anthropics/claude-code-action",
+        "kind": "plugin",
+        "install": "/install-github-app"
+      },
+      {
+        "n": 19,
+        "rank": 4,
+        "name": "claude-code-spec-workflow",
+        "desc": "Fluxos automatizados para o Claude Code com desenvolvimento orientado a especificacao (Requisitos, Design, Tarefas, Implementacao) e fluxo de correcao de bugs.",
+        "url": "github.com/pimzino/claude-code-spec-workflow",
+        "kind": "plugin",
+        "install": "npx @pimzino/claude-code-spec-workflow"
+      },
+      {
+        "n": 20,
+        "rank": 5,
+        "name": "spec-workflow-mcp",
+        "desc": "Servidor MCP que oferece ferramentas de desenvolvimento orientado a especificacao, com dashboard web em tempo real e extensao para VSCode.",
+        "url": "github.com/pimzino/spec-workflow-mcp",
+        "kind": "mcp",
+        "install": "npx -y @pimzino/spec-workflow-mcp",
+        "use": "Peça: monte a spec dessa feature e acompanhe pelo dashboard web"
+      },
+      {
+        "n": 21,
+        "rank": 6,
+        "name": "claude-task-master",
+        "desc": "Sistema de gerenciamento de tarefas com IA que funciona via Claude Code CLI e MCP, integravel a Cursor, Windsurf e outros editores.",
+        "url": "github.com/eyaltoledano/claude-task-master",
+        "kind": "mcp",
+        "install": "npm i -g task-master-ai",
+        "use": "Peça: quebre meu projeto em tarefas e organize o que fazer primeiro"
+      },
+      {
+        "n": 22,
+        "rank": 7,
+        "name": "claude-code-hooks-mastery",
+        "desc": "Projeto para dominar os hooks do Claude Code, com sub-agentes, meta-agente e validacao baseada em times.",
+        "url": "github.com/disler/claude-code-hooks-mastery",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 23,
+        "rank": 8,
+        "name": "infinite-agentic-loop",
+        "desc": "Projeto experimental que demonstra o Infinite Agentic Loop, orquestrando varios agentes em paralelo via comando slash no Claude Code.",
+        "url": "github.com/disler/infinite-agentic-loop",
+        "kind": "agent",
+        "install": "",
+        "use": "Peça: rode vários agentes em paralelo pra gerar várias versões disso"
+      },
+      {
+        "n": 24,
+        "rank": 9,
+        "name": "claude-team-orchestration",
+        "desc": "Plugin de orquestracao multi-agente para o Claude Code, coordenando times com tarefas compartilhadas, mensagens e 7 padroes de orquestracao.",
+        "url": "github.com/zircote/claude-team-orchestration",
+        "kind": "plugin",
+        "install": "/plugin marketplace add zircote/claude-team-orchestration"
+      },
+      {
+        "n": 25,
+        "rank": 10,
+        "name": "claude-code-workflow-orchestration",
+        "desc": "Plugin do Claude Code para orquestracao de fluxos de trabalho em varias etapas, com decomposicao automatica de tarefas, execucao de agentes em paralelo e delegacao para agentes especializados, integrado ao plan mode nativo.",
+        "url": "github.com/barkain/claude-code-workflow-orchestration",
+        "kind": "plugin",
+        "install": "/plugin marketplace add barkain/claude-code-workflow-orchestration"
+      },
+      {
+        "n": 26,
+        "rank": 11,
+        "name": "claude-orchestration",
+        "desc": "Plugin do Claude Code para orquestracao de fluxos com varios agentes; permite importar agentes personalizados e montar workflows multi-agente.",
+        "url": "github.com/mbruhler/claude-orchestration",
+        "kind": "plugin",
+        "install": "/plugin marketplace add mbruhler/claude-orchestration"
+      },
+      {
+        "n": 27,
+        "rank": 12,
+        "name": "claudecron",
+        "desc": "Servidor MCP que agenda tarefas de IA e shell no estilo cron, feito para uso com o Claude Code. Guarda tarefas e historico em SQLite e permite criar tarefas agendadas ou por evento.",
+        "url": "github.com/phildougherty/claudecron",
+        "kind": "mcp",
+        "install": "",
+        "use": "Peça: agende uma tarefa diária pra rodar este script no estilo cron"
+      },
+      {
+        "n": 28,
+        "rank": 13,
+        "name": "claude-code-scheduler",
+        "desc": "Coloca o Claude no piloto automatico: agenda tarefas (como revisao de codigo e auditoria de seguranca) que rodam sozinhas em horarios definidos e registram os resultados.",
+        "url": "github.com/jshchnz/claude-code-scheduler",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 29,
+        "rank": 14,
+        "name": "claude-conductor",
+        "desc": "Framework de desenvolvimento orientado a contexto para o Claude Code, com planejamento, testes e gestao de tracks (feature, bug, chore). Inspirado no Conductor do Gemini CLI.",
+        "url": "github.com/lackeyjb/claude-conductor",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 30,
+        "rank": 15,
+        "name": "claude-squad",
+        "desc": "App de terminal para gerenciar varios agentes de IA (Claude Code, Codex, OpenCode, Amp) em workspaces isolados por git, permitindo trabalhar em varias tarefas ao mesmo tempo.",
+        "url": "github.com/smtg-ai/claude-squad",
+        "kind": "tool",
+        "install": "brew install claude-squad",
+        "use": "Rode no terminal pra tocar vários agentes de IA em paralelo, cada um num branch"
+      },
+      {
+        "n": 31,
+        "rank": 16,
+        "name": "vibe-kanban",
+        "desc": "Quadro kanban para planejar e rodar agentes de codigo em workspaces (cada um com branch, terminal e dev server), revisar diffs e alternar entre mais de 10 agentes como Claude Code, Codex e Gemini CLI.",
+        "url": "github.com/bloopai/vibe-kanban",
+        "kind": "tool",
+        "install": "npx vibe-kanban",
+        "use": "Rode no terminal pra rodar vários agentes de código em paralelo e revisar os diffs"
+      },
+      {
+        "n": 32,
+        "rank": 17,
+        "name": "ccswarm",
+        "desc": "Sistema de orquestracao multi-agente em Rust que usa Claude Code com isolamento por git worktree e agentes de IA especializados para desenvolvimento colaborativo.",
+        "url": "github.com/nwiizo/ccswarm",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra orquestrar vários agentes em worktrees Git separados"
+      },
+      {
+        "n": 33,
+        "rank": 18,
+        "name": "agent-orchestrator",
+        "desc": "Orquestrador de agentes de codigo em paralelo: planeja tarefas, cria agentes (cada um com worktree e PR proprios) e resolve sozinho falhas de CI, conflitos de merge e revisoes.",
+        "url": "github.com/composiohq/agent-orchestrator",
+        "kind": "tool",
+        "install": "",
+        "use": "Peça pro Claude usar o orquestrador pra dividir a tarefa em agentes paralelos com PR"
+      },
+      {
+        "n": 35,
+        "rank": 19,
+        "name": "claude-code-showcase",
+        "desc": "Exemplo completo de configuracao de projeto Claude Code com hooks, skills, agentes, comandos e workflows do GitHub Actions, servindo de referencia para montar um setup profissional.",
+        "url": "github.com/chriswiles/claude-code-showcase",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 36,
+        "rank": 20,
+        "name": "superset",
+        "desc": "Editor de codigo e terminal para a era dos agentes de IA: roda varios agentes CLI (Claude Code, Codex etc.) em paralelo, cada um em seu git worktree, com diff viewer e notificacoes integradas.",
+        "url": "github.com/superset-sh/superset",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra rodar vários agentes CLI em paralelo com diff e notificações"
+      },
+      {
+        "n": 118,
+        "rank": 21,
+        "name": "builtby-win GitHub Skills",
+        "desc": "Automatiza seu fluxo no GitHub: gerencia issues, cria branches, abre PRs e coordena o time pelo Claude.",
+        "url": "github.com/builtby-win/skills",
+        "kind": "skill",
+        "install": "npx skills add builtby-win/skills",
+        "use": ""
+      },
+      {
+        "n": 119,
+        "rank": 22,
+        "name": "Workflow Orchestrator",
+        "desc": "Quebra tarefas grandes em etapas, roda agentes em paralelo e delega o trabalho automaticamente.",
+        "url": "github.com/barkain/claude-code-workflow-orchestration",
+        "kind": "plugin",
+        "install": "/plugin marketplace add barkain/claude-code-workflow-orchestration",
+        "use": ""
+      }
+    ]
+  },
+  {
+    "category": "Conectar ferramentas (MCP)",
+    "color": "#22d3ee",
+    "items": [
+      {
+        "n": 38,
+        "rank": 1,
+        "name": "Supabase MCP",
+        "desc": "Servidor MCP oficial da comunidade Supabase. Conecta seu projeto Supabase a assistentes de IA (Claude, Cursor) para gerenciar tabelas, consultar dados e buscar configuracoes.",
+        "url": "github.com/supabase-community/supabase-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add supabase -- npx -y @supabase/mcp-server-supabase@latest",
+        "use": "Peça: liste as tabelas do meu Supabase e consulte os dados dela"
+      },
+      {
+        "n": 39,
+        "rank": 2,
+        "name": "Filesystem MCP",
+        "desc": "Repositorio oficial de servidores MCP de referencia. O servidor Filesystem oferece operacoes seguras de arquivos com controle de acesso configuravel.",
+        "url": "github.com/modelcontextprotocol/servers",
+        "kind": "mcp",
+        "install": "claude mcp add filesystem -- npx -y @modelcontextprotocol/server-filesystem /caminho/da/pasta",
+        "use": "Peça: leia e edite os arquivos desta pasta com segurança"
+      },
+      {
+        "n": 40,
+        "rank": 3,
+        "name": "PostgreSQL MCP",
+        "desc": "Servidor MCP de PostgreSQL. Permite que a IA consulte bancos PostgreSQL.",
+        "url": "github.com/modelcontextprotocol/servers-archived/tree/main/src/postgres",
+        "kind": "mcp",
+        "install": "claude mcp add postgres -- npx -y @modelcontextprotocol/server-postgres postgresql://...",
+        "use": "Peça: consulte o banco PostgreSQL e me traga os dados dessa tabela"
+      },
+      {
+        "n": 41,
+        "rank": 4,
+        "name": "Notion MCP",
+        "desc": "Servidor MCP oficial do Notion. Integra a API do Notion a assistentes de IA para ler e editar paginas e bancos de dados.",
+        "url": "github.com/makenotion/notion-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add --transport http notion https://mcp.notion.com/mcp",
+        "use": "Peça: crie uma página no Notion com o resumo da reunião"
+      },
+      {
+        "n": 42,
+        "rank": 5,
+        "name": "Slack MCP",
+        "desc": "Servidor MCP para Slack com suporte a DMs, Group DMs e busca inteligente de historico, funcionando via OAuth ou em modo stealth sem precisar de permissoes no workspace.",
+        "url": "github.com/korotovsky/slack-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add slack -- npx -y slack-mcp-server",
+        "use": "Peça: busque no histórico do Slack o que falaram sobre esse assunto"
+      },
+      {
+        "n": 43,
+        "rank": 6,
+        "name": "Figma MCP",
+        "desc": "Servidor MCP que fornece informacoes de layout do Figma para agentes de IA, ajudando a implementar designs em codigo com mais precisao.",
+        "url": "github.com/glips/figma-context-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add --transport sse figma http://127.0.0.1:3845/sse",
+        "use": "Peça: pegue o layout deste arquivo Figma e transforme em código"
+      },
+      {
+        "n": 44,
+        "rank": 7,
+        "name": "Firecrawl MCP",
+        "desc": "Servidor MCP oficial do Firecrawl. Adiciona web scraping e busca na web a clientes de IA, com renderizacao de JavaScript e processamento em lote.",
+        "url": "github.com/firecrawl/firecrawl-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add firecrawl -- npx -y firecrawl-mcp",
+        "use": "Peça: faça scraping desse site e busque na web esse assunto"
+      },
+      {
+        "n": 45,
+        "rank": 8,
+        "name": "Brave Search MCP",
+        "desc": "Servidor MCP oficial da Brave Search. Integra a API de busca da Brave para busca na web, local, de imagens, videos e noticias.",
+        "url": "github.com/brave/brave-search-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add brave-search -- npx -y @brave/brave-search-mcp-server",
+        "use": "Peça: pesquise na web as últimas notícias sobre esse assunto"
+      },
+      {
+        "n": 46,
+        "rank": 9,
+        "name": "Git MCP",
+        "desc": "Servidor MCP de Git (de referencia). Oferece ferramentas para ler, buscar e manipular repositorios Git.",
+        "url": "github.com/modelcontextprotocol/servers/tree/main/src/git",
+        "kind": "mcp",
+        "install": "claude mcp add git -- uvx mcp-server-git",
+        "use": "Peça: veja o histórico desse repositório e busque onde mudou esse trecho"
+      },
+      {
+        "n": 47,
+        "rank": 10,
+        "name": "Fetch MCP",
+        "desc": "Servidor MCP Fetch (de referencia). Permite que a IA busque conteudo de paginas web e converta o HTML em markdown.",
+        "url": "github.com/modelcontextprotocol/servers/tree/main/src/fetch",
+        "kind": "mcp",
+        "install": "claude mcp add fetch -- uvx mcp-server-fetch",
+        "use": "Peça: busque esta página e me devolva o conteúdo em markdown"
+      },
+      {
+        "n": 48,
+        "rank": 11,
+        "name": "Memory MCP",
+        "desc": "Servidor MCP oficial de memoria. Da ao Claude memoria persistente usando um grafo de conhecimento local, permitindo lembrar de informacoes entre conversas.",
+        "url": "github.com/modelcontextprotocol/servers/tree/main/src/memory",
+        "kind": "mcp",
+        "install": "claude mcp add memory -- npx -y @modelcontextprotocol/server-memory",
+        "use": "Peça: lembre disso pra usar nas próximas conversas"
+      },
+      {
+        "n": 49,
+        "rank": 12,
+        "name": "Stripe MCP",
+        "desc": "Toolkit oficial da Stripe para agentes de IA. Permite que frameworks como OpenAI Agent SDK, LangChain e CrewAI chamem as APIs da Stripe via function calling (Python e TypeScript).",
+        "url": "github.com/stripe/agent-toolkit",
+        "kind": "mcp",
+        "install": "claude mcp add --transport http stripe https://mcp.stripe.com",
+        "use": "Peça: liste meus clientes e crie um link de pagamento na Stripe"
+      },
+      {
+        "n": 50,
+        "rank": 13,
+        "name": "Atlassian MCP (Jira/Confluence)",
+        "desc": "Servidor MCP para Jira e Confluence. Permite ao Claude buscar, criar e atualizar issues e paginas; suporta Cloud e Server/Data Center.",
+        "url": "github.com/sooperset/mcp-atlassian",
+        "kind": "mcp",
+        "install": "claude mcp add atlassian -- uvx mcp-atlassian",
+        "use": "Peça: crie uma issue no Jira e atualize essa página do Confluence"
+      },
+      {
+        "n": 51,
+        "rank": 14,
+        "name": "Sequential Thinking MCP",
+        "desc": "Servidor MCP oficial de pensamento sequencial. Ajuda a quebrar problemas complexos em etapas, revisando e ramificando o raciocinio passo a passo.",
+        "url": "github.com/modelcontextprotocol/servers/tree/main/src/sequentialthinking",
+        "kind": "mcp",
+        "install": "claude mcp add sequential-thinking -- npx -y @modelcontextprotocol/server-sequential-thinking",
+        "use": "Peça: pense passo a passo e quebre este problema complexo em etapas"
+      },
+      {
+        "n": 52,
+        "rank": 15,
+        "name": "Puppeteer MCP",
+        "desc": "Servidor MCP de automacao de navegador via Puppeteer. Navega paginas, tira screenshots e executa JavaScript em um navegador real.",
+        "url": "github.com/modelcontextprotocol/servers-archived/tree/main/src/puppeteer",
+        "kind": "mcp",
+        "install": "claude mcp add puppeteer -- npx -y @modelcontextprotocol/server-puppeteer",
+        "use": "Peça: abra essa página, tire um screenshot e rode esse JavaScript"
+      },
+      {
+        "n": 53,
+        "rank": 16,
+        "name": "Google Drive MCP",
+        "desc": "Servidor MCP do Google Drive. Lista, le e busca arquivos no Drive, convertendo Docs/Sheets automaticamente.",
+        "url": "github.com/modelcontextprotocol/servers-archived/tree/main/src/gdrive",
+        "kind": "mcp",
+        "install": "claude mcp add gdrive -- npx -y @modelcontextprotocol/server-gdrive",
+        "use": "Peça: encontre e leia aquele documento do meu Google Drive"
+      },
+      {
+        "n": 54,
+        "rank": 17,
+        "name": "Cloudflare MCP",
+        "desc": "Colecao oficial de servidores MCP da Cloudflare. Conecta a IA aos servicos da Cloudflare (Workers, DNS, observabilidade, seguranca, renderizacao de paginas).",
+        "url": "github.com/cloudflare/mcp-server-cloudflare",
+        "kind": "mcp",
+        "install": "claude mcp add --transport sse cloudflare https://docs.mcp.cloudflare.com/sse",
+        "use": "Peça: configure o DNS e veja os logs dos meus Workers da Cloudflare"
+      },
+      {
+        "n": 55,
+        "rank": 18,
+        "name": "Sequa / DBHub Database MCP",
+        "desc": "DBHub, servidor MCP de banco de dados da Bytebase. Conecta a IA a PostgreSQL, MySQL, SQL Server, MariaDB e SQLite, com modo somente leitura para seguranca.",
+        "url": "github.com/bytebase/dbhub",
+        "kind": "mcp",
+        "install": "claude mcp add dbhub -- npx -y @bytebase/dbhub",
+        "use": "Peça: conecte no meu banco e rode uma consulta SQL em modo leitura"
+      },
+      {
+        "n": 56,
+        "rank": 19,
+        "name": "Apify MCP",
+        "desc": "Servidor MCP da Apify. Da acesso aos milhares de Actors da Apify para web scraping e automacao (redes sociais, buscadores, mapas, e-commerce).",
+        "url": "github.com/apify/actors-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add apify -- npx -y @apify/actors-mcp-server",
+        "use": "Peça: rode um Actor da Apify pra raspar esses dados das redes sociais"
+      },
+      {
+        "n": 57,
+        "rank": 20,
+        "name": "Exa Search MCP",
+        "desc": "Servidor MCP da Exa. Conecta a IA a busca web, busca de codigo e pesquisa de empresas com filtros avancados.",
+        "url": "github.com/exa-labs/exa-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add exa -- npx -y exa-mcp-server",
+        "use": "Peça: busque empresas e trechos de código sobre esse tema na web"
+      }
+    ]
+  },
+  {
+    "category": "Design e Frontend",
+    "color": "#a78bfa",
+    "items": [
+      {
+        "n": 58,
+        "rank": 1,
+        "name": "ui-ux-pro-max",
+        "desc": "Skill de IA que fornece inteligencia de design de UI/UX: bancos de estilos, paletas de cores, pares de fontes e gerador de design system para varias plataformas (React, Vue, Flutter, etc.).",
+        "url": "github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+      },
+      {
+        "n": 60,
+        "rank": 2,
+        "name": "Vercel web-design-guidelines",
+        "desc": "Colecao oficial de Agent Skills da Vercel. A skill web-design-guidelines audita codigo de UI contra mais de 100 regras de acessibilidade, performance e UX.",
+        "url": "github.com/vercel-labs/agent-skills",
+        "kind": "skill",
+        "install": "npx skills add github.com/vercel-labs/agent-skills"
+      },
+      {
+        "n": 61,
+        "rank": 3,
+        "name": "21st.dev Magic MCP",
+        "desc": "Servidor MCP do 21st.dev que gera componentes React de UI a partir de descricoes em linguagem natural (comando /ui). Integra com Cursor, VSCode, Cline e Claude Code.",
+        "url": "github.com/21st-dev/magic-mcp",
+        "kind": "mcp",
+        "install": "npx -y @21st-dev/magic@latest",
+        "use": "Peça: gere um componente React de UI a partir dessa descrição"
+      },
+      {
+        "n": 62,
+        "rank": 4,
+        "name": "Figma MCP (Dev Mode)",
+        "desc": "Plugin oficial da Figma para Claude Code. Le arquivos de design, extrai componentes, variaveis e tokens, e converte frames do Figma em codigo (Dev Mode). Instala via marketplace oficial de plugins.",
+        "url": "claude.com/plugins/figma",
+        "kind": "mcp",
+        "install": "claude mcp add figma",
+        "use": "Peça: extraia os componentes e tokens deste frame do Figma e gere o código"
+      },
+      {
+        "n": 63,
+        "rank": 5,
+        "name": "shadcn/ui MCP",
+        "desc": "Biblioteca de componentes shadcn/ui (React + Tailwind + Radix).",
+        "url": "github.com/shadcn-ui/ui",
+        "kind": "mcp",
+        "install": "npx shadcn@latest mcp",
+        "use": "Peça: gere esse componente de UI com shadcn, React e Tailwind"
+      },
+      {
+        "n": 64,
+        "rank": 6,
+        "name": "EnzeD r3f-skills",
+        "desc": "Colecao de 10 skills para React Three Fiber (R3F) que melhoram a precisao de assistentes de IA em desenvolvimento web 3D. Cobre canvas, geometria, materiais, animacao, shaders, pos-processamento e fisica.",
+        "url": "github.com/enzed/r3f-skills",
+        "kind": "skill",
+        "install": "npx add-skill EnzeD/r3f-skills"
+      },
+      {
+        "n": 65,
+        "rank": 7,
+        "name": "Remotion skills",
+        "desc": "Agent Skills oficiais do Remotion para criar videos programaticamente com React. Pacote interno mantido pela equipe do Remotion.",
+        "url": "github.com/remotion-dev/skills",
+        "kind": "skill",
+        "install": "npx skills add github.com/remotion-dev/skills"
+      },
+      {
+        "n": 66,
+        "rank": 8,
+        "name": "claudedesignskills (3D/animacao)",
+        "desc": "Marketplace de plugins com colecao abrangente de skills de Claude Code para desenvolvimento web focado em graficos 3D, animacao e experiencias interativas (Three.js, GSAP, R3F, Babylon.js, Spline, Blender).",
+        "url": "github.com/freshtechbro/claudedesignskills",
+        "kind": "skill",
+        "install": "npx add-skill freshtechbro/claudedesignskills"
+      },
+      {
+        "n": 67,
+        "rank": 9,
+        "name": "claude-skills-threejs-ecs-ts",
+        "desc": "14 skills de Claude Code para construir jogos Three.js otimizados para mobile, usando Entity Component System (ECS), React Three Fiber e TypeScript.",
+        "url": "github.com/nice-wolf-studio/claude-skills-threejs-ecs-ts",
+        "kind": "skill",
+        "install": ""
+      },
+      {
+        "n": 68,
+        "rank": 10,
+        "name": "threejs-skills (CloudAI-X)",
+        "desc": "11 skills que dao ao Claude Code referencias precisas da API do Three.js (r160+) e exemplos de codigo para cena, geometria, materiais, iluminacao, shaders e pos-processamento.",
+        "url": "github.com/cloudai-x/threejs-skills",
+        "kind": "skill",
+        "install": ""
+      },
+      {
+        "n": 69,
+        "rank": 11,
+        "name": "website-builder-setup",
+        "desc": "Instalacao que transforma o Claude Code em um estudio de web design, combinando tres ferramentas: UI/UX Pro Max, Framer Motion e 21st.dev Magic.",
+        "url": "github.com/tenfoldmarc/website-builder-setup",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 72,
+        "rank": 12,
+        "name": "design (plugin oficial Anthropic)",
+        "desc": "Repositorio oficial do Claude Code da Anthropic. O plugin de design (frontend-design) vive na pasta plugins deste repositorio e e aplicado automaticamente pelo modelo ao criar interfaces.",
+        "url": "github.com/anthropics/claude-code",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 73,
+        "rank": 13,
+        "name": "resemble remotion skill",
+        "desc": "Skill da Resemble AI para gerar narracoes em videos Remotion usando text-to-speech (voz por IA). Util para tutoriais e videos narrados.",
+        "url": "github.com/resemble-ai/remotion-resemble-skill",
+        "kind": "skill",
+        "install": ""
+      },
+      {
+        "n": 120,
+        "rank": 14,
+        "name": "claude-design-skill",
+        "desc": "Transforma o Claude num designer pra artefatos HTML: landing pages, decks, protótipos, posters e animações.",
+        "url": "github.com/jiji262/claude-design-skill",
+        "kind": "skill",
+        "install": "npx skills add jiji262/claude-design-skill",
+        "use": ""
+      },
+      {
+        "n": 121,
+        "rank": 15,
+        "name": "interface-design",
+        "desc": "Mantém a UI consistente entre sessões com memória de design e regras impostas, focado em design engineering.",
+        "url": "github.com/Dammyjay93/interface-design",
+        "kind": "skill",
+        "install": "npx skills add Dammyjay93/interface-design",
+        "use": ""
+      },
+      {
+        "n": 122,
+        "rank": 16,
+        "name": "animate-skill",
+        "desc": "Padrões de animação pra Next.js/React baseados no curso do Emil Kowalski, com 8 exemplos prontos.",
+        "url": "github.com/delphi-ai/animate-skill",
+        "kind": "skill",
+        "install": "npx skills add delphi-ai/animate-skill",
+        "use": ""
+      }
+    ]
+  },
+  {
+    "category": "Segurança",
+    "color": "#34d399",
+    "items": [
+      {
+        "n": 74,
+        "rank": 1,
+        "name": "claude-code-security-review",
+        "desc": "GitHub Action oficial da Anthropic que usa o Claude para revisar mudancas de codigo e encontrar vulnerabilidades de seguranca em pull requests.",
+        "url": "github.com/anthropics/claude-code-security-review",
+        "kind": "plugin",
+        "install": "github action: anthropics/claude-code-security-review"
+      },
+      {
+        "n": 75,
+        "rank": 2,
+        "name": "security-review (built-in)",
+        "desc": "Pagina de ajuda oficial sobre as revisoes de seguranca automaticas no Claude Code, incluindo o comando /security-review embutido no terminal.",
+        "url": "support.claude.com/en/articles/11932705-automated-security-reviews-in-claude-code",
+        "kind": "skill",
+        "install": "/security-review"
+      },
+      {
+        "n": 76,
+        "rank": 3,
+        "name": "semgrep/mcp",
+        "desc": "Servidor MCP do Semgrep para escanear codigo em busca de vulnerabilidades.",
+        "url": "github.com/semgrep/mcp",
+        "kind": "mcp",
+        "install": "claude mcp add semgrep -- uvx semgrep-mcp",
+        "use": "Peça: escaneie meu código em busca de vulnerabilidades com o Semgrep"
+      },
+      {
+        "n": 77,
+        "rank": 4,
+        "name": "trivy-mcp",
+        "desc": "Plugin do Trivy (Aqua Security) que inicia um servidor MCP para escanear vulnerabilidades, falhas de configuracao e segredos. Integra com VS Code, Cursor, JetBrains e Claude.",
+        "url": "github.com/aquasecurity/trivy-mcp",
+        "kind": "mcp",
+        "install": "trivy plugin install mcp",
+        "use": "Peça: escaneie o projeto em busca de vulnerabilidades, falhas e segredos"
+      },
+      {
+        "n": 78,
+        "rank": 5,
+        "name": "snyk studio-mcp",
+        "desc": "Servidor MCP da Snyk que leva o escaneamento de seguranca da Snyk para ferramentas com IA, permitindo escanear codigo, dependencias e configuracoes.",
+        "url": "github.com/snyk/studio-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add snyk -- snyk mcp",
+        "use": "Peça: escaneie meu código e dependências em busca de falhas de segurança"
+      },
+      {
+        "n": 79,
+        "rank": 6,
+        "name": "snyk/agent-scan",
+        "desc": "Scanner de seguranca da Snyk para agentes de IA, servidores MCP e skills. Detecta injecao de prompt, tool poisoning e fluxos perigosos. Descobre configuracoes de Claude Code/Desktop, Cursor e outros.",
+        "url": "github.com/snyk/agent-scan",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra escanear seus MCPs e skills atrás de prompt injection"
+      },
+      {
+        "n": 80,
+        "rank": 7,
+        "name": "sast-mcp",
+        "desc": "Servidor MCP que integra varias ferramentas de SAST (Semgrep, Bandit, TruffleHog e outras) com o Claude Code, permitindo analise de seguranca por comandos em linguagem natural. Projeto da comunidade, nao oficial.",
+        "url": "github.com/sengtocxoen/sast-mcp",
+        "kind": "mcp",
+        "install": "",
+        "use": "Peça: rode uma análise de segurança completa no meu código"
+      },
+      {
+        "n": 81,
+        "rank": 8,
+        "name": "trailofbits/skills",
+        "desc": "Colecao de skills da Trail of Bits para o Claude Code, focada em pesquisa de seguranca, deteccao de vulnerabilidades e fluxos de auditoria.",
+        "url": "github.com/trailofbits/skills",
+        "kind": "skill",
+        "install": "/plugin marketplace add trailofbits/skills"
+      },
+      {
+        "n": 82,
+        "rank": 9,
+        "name": "security-scanner-plugin",
+        "desc": "Plugin do Claude Code que escaneia seu codigo localmente em busca de dependencias vulneraveis usando os dados oficiais de CVE do GitHub. Projeto da comunidade.",
+        "url": "github.com/harish-garg/security-scanner-plugin",
+        "kind": "plugin",
+        "install": "/plugin install security-scanner"
+      },
+      {
+        "n": 84,
+        "rank": 10,
+        "name": "trufflehog",
+        "desc": "Scanner de segredos open-source que encontra, verifica e analisa credenciais vazadas (chaves de API, senhas, chaves privadas) em Git, chats, wikis, logs e mais.",
+        "url": "github.com/trufflesecurity/trufflehog",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra varrer o repositório atrás de credenciais vazadas"
+      },
+      {
+        "n": 85,
+        "rank": 11,
+        "name": "gitleaks",
+        "desc": "Ferramenta SAST que detecta segredos hardcoded (senhas, chaves de API, tokens) em repositorios Git, arquivos e diretorios, incluindo todo o historico de commits. Suporta mais de 160 tipos de segredos.",
+        "url": "github.com/gitleaks/gitleaks",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra achar senhas e chaves de API vazadas no seu repositório"
+      },
+      {
+        "n": 86,
+        "rank": 12,
+        "name": "ggshield (GitGuardian)",
+        "desc": "CLI da GitGuardian que detecta e valida mais de 500 tipos de segredos hardcoded. Funciona como pre-commit hook, GitHub Action ou CLI, e pode escanear interacoes com assistentes de IA como o Claude Code em tempo real.",
+        "url": "github.com/gitguardian/ggshield",
+        "kind": "tool",
+        "install": "pip install ggshield",
+        "use": "Rode no terminal pra detectar segredos hardcoded antes do commit"
+      },
+      {
+        "n": 87,
+        "rank": 13,
+        "name": "invariantlabs mcp-scan",
+        "desc": "Scanner de seguranca para conexoes MCP que verifica servidores instalados em busca de vulnerabilidades como prompt injection, tool poisoning e escalonamento. Inclui Tool Pinning para detectar ataques de rug pull.",
+        "url": "github.com/invariantlabs-ai/mcp-scan",
+        "kind": "tool",
+        "install": "uvx mcp-scan",
+        "use": "Rode no terminal pra escanear seus servidores MCP em busca de prompt injection"
+      },
+      {
+        "n": 88,
+        "rank": 14,
+        "name": "AWS MCP Security Scanner",
+        "desc": "Servidor MCP da AWS que integra tres ferramentas de scan de seguranca (Checkov, Semgrep e Bandit) para analisar codigo e Infraestrutura como Codigo em busca de vulnerabilidades e ma configuracao.",
+        "url": "github.com/aws-samples/sample-mcp-security-scanner",
+        "kind": "mcp",
+        "install": "",
+        "use": "Peça: escaneie meu código e infra como código atrás de vulnerabilidades"
+      },
+      {
+        "n": 89,
+        "rank": 15,
+        "name": "SecureMCP",
+        "desc": "Ferramenta de auditoria de seguranca (escrita em Go) que detecta vulnerabilidades em aplicacoes que usam MCP, como vazamento de token OAuth, prompt injection, servidores MCP maliciosos e tool poisoning.",
+        "url": "github.com/makalin/securemcp",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra auditar seus servidores MCP em busca de falhas de segurança"
+      },
+      {
+        "n": 90,
+        "rank": 16,
+        "name": "mcpserver-audit",
+        "desc": "Ferramenta que ajuda a verificar se servidores MCP sao seguros antes de usa-los, examinando-os em busca de problemas de seguranca. Faz parte da iniciativa MCP Security da Cloud Security Alliance.",
+        "url": "github.com/modelcontextprotocol-security/mcpserver-audit",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra checar se um servidor MCP é seguro antes de usar"
+      },
+      {
+        "n": 91,
+        "rank": 17,
+        "name": "promptfoo",
+        "desc": "CLI e biblioteca para avaliar e fazer red-teaming de aplicacoes LLM, com testes de prompts, deteccao de regressoes e scan de vulnerabilidades. Agora faz parte da OpenAI e segue open-source (MIT).",
+        "url": "github.com/promptfoo/promptfoo",
+        "kind": "tool",
+        "install": "npx promptfoo@latest",
+        "use": "Rode no terminal pra testar prompts e fazer red-team da sua aplicação LLM"
+      },
+      {
+        "n": 92,
+        "rank": 18,
+        "name": "NVIDIA garak",
+        "desc": "Scanner de vulnerabilidades para LLMs da NVIDIA que testa modelos contra prompt injection, jailbreaks, vazamento de dados, alucinacao, toxicidade e outras falhas. Funciona como um pentest para IA.",
+        "url": "github.com/nvidia/garak",
+        "kind": "tool",
+        "install": "pip install garak",
+        "use": "Rode no terminal pra testar seu LLM contra prompt injection e jailbreak"
+      },
+      {
+        "n": 93,
+        "rank": 19,
+        "name": "lasso-security/claude-hooks",
+        "desc": "Hooks de seguranca da Lasso para o Claude Code com defesas contra prompt injection. Escaneia arquivos, paginas web e saidas de comandos em tempo real detectando mais de 50 padroes de injecao.",
+        "url": "github.com/lasso-security/claude-hooks",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 94,
+        "rank": 20,
+        "name": "claude-code-safety-net",
+        "desc": "Hook que atua como rede de seguranca, interceptando comandos destrutivos de git e filesystem (como rm -rf ou git reset --hard) antes que executem. Suporta Claude Code, Codex, Gemini CLI e outros.",
+        "url": "github.com/kenryu42/claude-code-safety-net",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 95,
+        "rank": 21,
+        "name": "trailofbits/claude-code-config",
+        "desc": "Configuracoes, documentacao e workflows recomendados pela Trail of Bits para o Claude Code, cobrindo sandboxing, permissoes, hooks, skills e servidores MCP voltados a auditorias de seguranca.",
+        "url": "github.com/trailofbits/claude-code-config",
+        "kind": "plugin",
+        "install": ""
+      },
+      {
+        "n": 96,
+        "rank": 22,
+        "name": "cisco mcp-scanner",
+        "desc": "Ferramenta da Cisco AI Defense que escaneia servidores MCP em busca de ameacas e falhas de seguranca, usando regras YARA e analise por LLM.",
+        "url": "github.com/cisco-ai-defense/mcp-scanner",
+        "kind": "tool",
+        "install": "",
+        "use": "Rode no terminal pra escanear servidores MCP atrás de ameaças com regras YARA"
+      },
+      {
+        "n": 97,
+        "rank": 23,
+        "name": "cycode MCP",
+        "desc": "CLI da Cycode que escaneia repositorios em busca de segredos, vulnerabilidades e ma configuracao; inclui servidor MCP a partir da versao 3.2.0.",
+        "url": "github.com/cycodehq/cycode-cli",
+        "kind": "mcp",
+        "install": "pip install cycode",
+        "use": "Peça: escaneie o repositório em busca de segredos e má configuração"
+      },
+      {
+        "n": 123,
+        "rank": 24,
+        "name": "managing-dependencies",
+        "desc": "Audita as dependências do projeto: detecta typosquatting, confusão de pacotes e versões inseguras.",
+        "url": "github.com/andrew/managing-dependencies",
+        "kind": "skill",
+        "install": "npx skills add github.com/andrew/managing-dependencies",
+        "use": "Peça: audite as dependências do meu projeto e veja se há pacotes inseguros"
+      }
+    ]
+  },
+  {
+    "category": "Conteúdo, dados e mídia",
+    "color": "#fbbf24",
+    "items": [
+      {
+        "n": 114,
+        "rank": 1,
+        "name": "visual-skills",
+        "desc": "A skill TOP pra criar prompts de imagem e vídeo com IA. Escolhe o modelo certo e devolve o prompt pronto pra colar.",
+        "url": "github.com/smixs/visual-skills",
+        "kind": "skill",
+        "install": "claude install image.skill",
+        "use": "Peça: crie um prompt de imagem (ou vídeo) cinematográfico pra Nano Banana, Kling ou Veo"
+      },
+      {
+        "n": 98,
+        "rank": 2,
+        "name": "claude-office-skills",
+        "desc": "Skills para o Claude Code criarem e editarem documentos do Office (PPTX, DOCX, XLSX e PDF) com automacao.",
+        "url": "github.com/tfriedel/claude-office-skills",
+        "kind": "skill",
+        "install": "npx skills add github.com/tfriedel/claude-office-skills"
+      },
+      {
+        "n": 99,
+        "rank": 3,
+        "name": "Firecrawl plugin",
+        "desc": "Plugin oficial do Firecrawl para o Claude Code: transforma qualquer site em markdown limpo, com scrape, crawl, search e map.",
+        "url": "github.com/firecrawl/firecrawl-claude-plugin",
+        "kind": "plugin",
+        "install": "/plugin marketplace add firecrawl/firecrawl-claude-plugin"
+      },
+      {
+        "n": 100,
+        "rank": 4,
+        "name": "Bright Data MCP",
+        "desc": "Servidor MCP da Bright Data que da acesso a web publica sem bloqueios, CAPTCHAs ou limites, com busca e scraping.",
+        "url": "github.com/brightdata/brightdata-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add brightdata -- npx @brightdata/mcp",
+        "use": "Peça: faça scraping deste site sem cair em bloqueio ou CAPTCHA"
+      },
+      {
+        "n": 101,
+        "rank": 5,
+        "name": "Tavily MCP",
+        "desc": "Servidor MCP do Tavily, pronto para producao, com busca em tempo real, extracao, mapeamento e crawl da web.",
+        "url": "github.com/tavily-ai/tavily-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add tavily -- npx tavily-mcp",
+        "use": "Peça: busque na web em tempo real e extraia o conteúdo dessas páginas"
+      },
+      {
+        "n": 102,
+        "rank": 6,
+        "name": "pandas-mcp-server",
+        "desc": "Servidor MCP que da ao Claude poder de analise de dados com Pandas: le CSV, roda codigo Pandas com seguranca e gera graficos.",
+        "url": "github.com/marlonluo2018/pandas-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add pandas -- python -m pandas_mcp_server",
+        "use": "Peça: leia esse CSV com Pandas e gere um gráfico dos dados"
+      },
+      {
+        "n": 103,
+        "rank": 7,
+        "name": "quick-data-mcp",
+        "desc": "Servidor MCP focado em prompts para analise de dados JSON e CSV diretamente no Claude Code.",
+        "url": "github.com/disler/quick-data-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add quick-data -- uvx quick-data-mcp",
+        "use": "Peça: analise este JSON e me mostre os números deste CSV"
+      },
+      {
+        "n": 104,
+        "rank": 8,
+        "name": "jupyter-notebook-mcp",
+        "desc": "Servidor MCP que permite ao Claude ler, editar e executar notebooks Jupyter via ponte WebSocket.",
+        "url": "github.com/jjsantos01/jupyter-notebook-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add jupyter -- python jupyter_mcp_server.py",
+        "use": "Peça: abra meu notebook Jupyter, edite a célula e execute o código"
+      },
+      {
+        "n": 105,
+        "rank": 9,
+        "name": "mcp-server-excel",
+        "desc": "Servidor MCP e CLI para automacao de Excel via COM API (Power Query, DAX, VBA, tabelas dinamicas, graficos). Funciona no Windows.",
+        "url": "github.com/sbroenne/mcp-server-excel",
+        "kind": "mcp",
+        "install": "claude mcp add excel -- npx mcp-server-excel",
+        "use": "Peça: gere essa planilha Excel com tabela dinâmica e gráfico (só Windows)"
+      },
+      {
+        "n": 106,
+        "rank": 10,
+        "name": "deapi claude-code-skills",
+        "desc": "Skills da deAPI para Claude Code: transcricao, geracao de imagem e video, TTS e OCR, com inferencia ate 20x mais barata.",
+        "url": "github.com/deapi-ai/claude-code-skills",
+        "kind": "skill",
+        "install": "npx skills add github.com/deapi-ai/claude-code-skills"
+      },
+      {
+        "n": 107,
+        "rank": 11,
+        "name": "transcript-critic",
+        "desc": "Skill do Claude Code que transcreve audio/video com whisper.cpp e gera analise critica com resumos, evidencias e falacias logicas.",
+        "url": "github.com/jftuga/transcript-critic",
+        "kind": "skill",
+        "install": "npx skills add github.com/jftuga/transcript-critic"
+      },
+      {
+        "n": 108,
+        "rank": 12,
+        "name": "asr-transcribe-to-text",
+        "desc": "Toolkit oficial em Python para a API Qwen3-ASR. Transcreve audios e videos de qualquer duracao, quebrando o limite de 3 minutos da API. Divide o audio em pausas naturais (VAD), processa em paralelo e gera legendas .srt. Suporta varios formatos via FFmpeg.",
+        "url": "github.com/qwenlm/qwen3-asr-toolkit",
+        "kind": "skill",
+        "install": ""
+      },
+      {
+        "n": 109,
+        "rank": 13,
+        "name": "marp slides",
+        "desc": "Skill do Claude Code para criar, editar e gerenciar slides Marp (apresentacoes em Markdown). Tem 5 modos (Criar, Editar, Tema, Converter, Resumir), biblioteca de layouts, sistema de temas com contraste acessivel (WCAG) e checklists de qualidade. Precisa do marp-cli e do Chrome/Chromium para exportar.",
+        "url": "github.com/eruto-skills/marp",
+        "kind": "skill",
+        "install": "npx skills add github.com/eruto-skills/marp"
+      },
+      {
+        "n": 110,
+        "rank": 14,
+        "name": "marp-slides (robonuggets)",
+        "desc": "Skill do Claude Code para gerar apresentacoes profissionais em MARP a partir de um tema. Inclui 22 decks de exemplo, componentes visuais (graficos SVG, cards de metricas, gauges, sparklines), temas claro/escuro e exportacao para PDF, PowerPoint e HTML.",
+        "url": "github.com/robonuggets/marp-slides",
+        "kind": "skill",
+        "install": "npx skills add github.com/robonuggets/marp-slides"
+      },
+      {
+        "n": 111,
+        "rank": 15,
+        "name": "book-to-skill",
+        "desc": "Ferramenta que transforma livros tecnicos e documentos (PDF, EPUB, DOCX, HTML e outros) em skills estruturadas para Claude Code, GitHub Copilot CLI e Amp. Gera SKILL.md com o modelo mental, arquivos por capitulo carregados sob demanda, glossario e cheatsheets, economizando tokens. Processamento local.",
+        "url": "github.com/virgiliojr94/book-to-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/virgiliojr94/book-to-skill"
+      },
+      {
+        "n": 112,
+        "rank": 16,
+        "name": "claude-mcp-data-explorer",
+        "desc": "Servidor MCP em TypeScript (focado em Windows) para analise de dados com o Claude. Oferece a ferramenta load-csv para carregar dados de arquivos CSV na memoria e run-script para processar esses dados com codigo JavaScript.",
+        "url": "github.com/tofunori/claude-mcp-data-explorer",
+        "kind": "mcp",
+        "install": "claude mcp add data-explorer -- node index.js",
+        "use": "Peça: carregue meu CSV e processe os dados com um script"
+      },
+      {
+        "n": 113,
+        "rank": 17,
+        "name": "claude-code-notebook-mcp",
+        "desc": "Servidor MCP que da ao Claude Code controle completo sobre notebooks Jupyter, com 29 operacoes: criar/apagar/renomear notebooks, adicionar/editar/mover/dividir celulas, gerenciar saidas e metadados, alem de exportar, buscar e gerar indices. Feito em Node.js, requer Node 18+ e nbformat 4.x.",
+        "url": "github.com/mstampfer/claude-code-notebook-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add notebook -- python notebook_mcp.py",
+        "use": "Peça: crie um notebook Jupyter e adicione as células deste código"
+      }
+    ]
+  }
+]

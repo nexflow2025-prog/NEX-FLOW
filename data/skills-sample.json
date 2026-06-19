@@ -1,0 +1,270 @@
+[
+  {
+    "category": "Escrever código melhor",
+    "color": "#d13b42",
+    "items": [
+      {
+        "n": 1,
+        "rank": 1,
+        "name": "Superpowers",
+        "desc": "Framework de skills e metodologia de desenvolvimento de software para agentes de codigo, criado por obra. Funciona com Claude Code e outros.",
+        "url": "github.com/obra/superpowers",
+        "kind": "plugin",
+        "install": "/plugin marketplace add obra/superpowers"
+      },
+      {
+        "n": 5,
+        "rank": 2,
+        "name": "code-review-skill",
+        "desc": "Skill completa de revisao de codigo para Claude Code, cobrindo React 19, Vue 3, Rust, TypeScript e mais.",
+        "url": "github.com/awesome-skills/code-review-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/awesome-skills/code-review-skill"
+      },
+      {
+        "n": 6,
+        "rank": 3,
+        "name": "mastering-typescript-skill",
+        "desc": "Skill do Claude Code para TypeScript de nivel enterprise, com padroes type-safe e integracao com React e NestJS.",
+        "url": "github.com/spillwavesolutions/mastering-typescript-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/SpillwaveSolutions/mastering-typescript-skill"
+      },
+      {
+        "n": 8,
+        "rank": 4,
+        "name": "Serena MCP",
+        "desc": "Toolkit MCP para programacao com busca e edicao semantica de codigo. Funciona com Claude Code, Cursor e outros.",
+        "url": "github.com/oraios/serena",
+        "kind": "mcp",
+        "install": "claude mcp add serena -- uvx --from git+https://github.com/oraios/serena serena start-mcp-server",
+        "use": "Peça: busque onde está a função X no código e refatore com edição semântica"
+      },
+      {
+        "n": 9,
+        "rank": 5,
+        "name": "Context7 MCP",
+        "desc": "MCP que injeta documentacao atualizada e exemplos de codigo no contexto do LLM, evitando APIs inventadas.",
+        "url": "github.com/upstash/context7",
+        "kind": "mcp",
+        "install": "claude mcp add context7 -- npx -y @upstash/context7-mcp",
+        "use": "Peça: traga a doc atualizada dessa biblioteca pra você não inventar API"
+      },
+      {
+        "n": 10,
+        "rank": 6,
+        "name": "GitHub MCP",
+        "desc": "Servidor MCP oficial do GitHub que conecta agentes de IA a repositorios, issues e pull requests.",
+        "url": "github.com/github/github-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add github -- npx -y @modelcontextprotocol/server-github",
+        "use": "Peça: liste as issues abertas do meu repositório e abra um pull request"
+      },
+      {
+        "n": 11,
+        "rank": 7,
+        "name": "Playwright MCP",
+        "desc": "Servidor MCP da Microsoft para automacao de navegador via Playwright usando snapshots de acessibilidade.",
+        "url": "github.com/microsoft/playwright-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add playwright -- npx -y @playwright/mcp",
+        "use": "Peça: abra o site no navegador e preencha esse formulário sozinho"
+      },
+      {
+        "n": 12,
+        "rank": 8,
+        "name": "Sentry MCP",
+        "desc": "Servidor MCP do Sentry que da ao agente acesso direto a erros, issues e analise de problemas.",
+        "url": "github.com/getsentry/sentry-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add --transport http sentry https://mcp.sentry.dev/mcp",
+        "use": "Peça: liste os erros recentes do Sentry e me explique a causa raiz"
+      }
+    ]
+  },
+  {
+    "category": "Automatizar tarefas",
+    "color": "#ff8a4c",
+    "items": [
+      {
+        "n": 17,
+        "rank": 1,
+        "name": "Commit Commands",
+        "desc": "Plugin oficial que automatiza operacoes de git com comandos slash como /commit e /commit-push-pr.",
+        "url": "github.com/anthropics/claude-code/tree/main/plugins/commit-commands",
+        "kind": "plugin",
+        "install": "/plugin install commit-commands"
+      },
+      {
+        "n": 19,
+        "rank": 2,
+        "name": "claude-code-spec-workflow",
+        "desc": "Fluxos automatizados para o Claude Code com desenvolvimento orientado a especificacao (Requisitos, Design, Tarefas, Implementacao) e fluxo de correcao de bugs.",
+        "url": "github.com/pimzino/claude-code-spec-workflow",
+        "kind": "plugin",
+        "install": "npx @pimzino/claude-code-spec-workflow"
+      },
+      {
+        "n": 21,
+        "rank": 3,
+        "name": "claude-task-master",
+        "desc": "Sistema de gerenciamento de tarefas com IA que funciona via Claude Code CLI e MCP, integravel a Cursor, Windsurf e outros editores.",
+        "url": "github.com/eyaltoledano/claude-task-master",
+        "kind": "mcp",
+        "install": "npm i -g task-master-ai",
+        "use": "Peça: quebre meu projeto em tarefas e organize o que fazer primeiro"
+      }
+    ]
+  },
+  {
+    "category": "Conectar ferramentas (MCP)",
+    "color": "#22d3ee",
+    "items": [
+      {
+        "n": 38,
+        "rank": 1,
+        "name": "Supabase MCP",
+        "desc": "Servidor MCP oficial da comunidade Supabase. Conecta seu projeto Supabase a assistentes de IA (Claude, Cursor) para gerenciar tabelas, consultar dados e buscar configuracoes.",
+        "url": "github.com/supabase-community/supabase-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add supabase -- npx -y @supabase/mcp-server-supabase@latest",
+        "use": "Peça: liste as tabelas do meu Supabase e consulte os dados dela"
+      },
+      {
+        "n": 41,
+        "rank": 2,
+        "name": "Notion MCP",
+        "desc": "Servidor MCP oficial do Notion. Integra a API do Notion a assistentes de IA para ler e editar paginas e bancos de dados.",
+        "url": "github.com/makenotion/notion-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add --transport http notion https://mcp.notion.com/mcp",
+        "use": "Peça: crie uma página no Notion com o resumo da reunião"
+      },
+      {
+        "n": 42,
+        "rank": 3,
+        "name": "Slack MCP",
+        "desc": "Servidor MCP para Slack com suporte a DMs, Group DMs e busca inteligente de historico, funcionando via OAuth ou em modo stealth sem precisar de permissoes no workspace.",
+        "url": "github.com/korotovsky/slack-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add slack -- npx -y slack-mcp-server",
+        "use": "Peça: busque no histórico do Slack o que falaram sobre esse assunto"
+      },
+      {
+        "n": 43,
+        "rank": 4,
+        "name": "Figma MCP",
+        "desc": "Servidor MCP que fornece informacoes de layout do Figma para agentes de IA, ajudando a implementar designs em codigo com mais precisao.",
+        "url": "github.com/glips/figma-context-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add --transport sse figma http://127.0.0.1:3845/sse",
+        "use": "Peça: pegue o layout deste arquivo Figma e transforme em código"
+      },
+      {
+        "n": 44,
+        "rank": 5,
+        "name": "Firecrawl MCP",
+        "desc": "Servidor MCP oficial do Firecrawl. Adiciona web scraping e busca na web a clientes de IA, com renderizacao de JavaScript e processamento em lote.",
+        "url": "github.com/firecrawl/firecrawl-mcp-server",
+        "kind": "mcp",
+        "install": "claude mcp add firecrawl -- npx -y firecrawl-mcp",
+        "use": "Peça: faça scraping desse site e busque na web esse assunto"
+      }
+    ]
+  },
+  {
+    "category": "Design e Frontend",
+    "color": "#a78bfa",
+    "items": [
+      {
+        "n": 58,
+        "rank": 1,
+        "name": "ui-ux-pro-max",
+        "desc": "Skill de IA que fornece inteligencia de design de UI/UX: bancos de estilos, paletas de cores, pares de fontes e gerador de design system para varias plataformas (React, Vue, Flutter, etc.).",
+        "url": "github.com/nextlevelbuilder/ui-ux-pro-max-skill",
+        "kind": "skill",
+        "install": "npx skills add github.com/nextlevelbuilder/ui-ux-pro-max-skill"
+      },
+      {
+        "n": 61,
+        "rank": 2,
+        "name": "21st.dev Magic MCP",
+        "desc": "Servidor MCP do 21st.dev que gera componentes React de UI a partir de descricoes em linguagem natural (comando /ui). Integra com Cursor, VSCode, Cline e Claude Code.",
+        "url": "github.com/21st-dev/magic-mcp",
+        "kind": "mcp",
+        "install": "npx -y @21st-dev/magic@latest",
+        "use": "Peça: gere um componente React de UI a partir dessa descrição"
+      },
+      {
+        "n": 63,
+        "rank": 3,
+        "name": "shadcn/ui MCP",
+        "desc": "Biblioteca de componentes shadcn/ui (React + Tailwind + Radix).",
+        "url": "github.com/shadcn-ui/ui",
+        "kind": "mcp",
+        "install": "npx shadcn@latest mcp",
+        "use": "Peça: gere esse componente de UI com shadcn, React e Tailwind"
+      }
+    ]
+  },
+  {
+    "category": "Segurança",
+    "color": "#34d399",
+    "items": [
+      {
+        "n": 74,
+        "rank": 1,
+        "name": "claude-code-security-review",
+        "desc": "GitHub Action oficial da Anthropic que usa o Claude para revisar mudancas de codigo e encontrar vulnerabilidades de seguranca em pull requests.",
+        "url": "github.com/anthropics/claude-code-security-review",
+        "kind": "plugin",
+        "install": "github action: anthropics/claude-code-security-review"
+      },
+      {
+        "n": 76,
+        "rank": 2,
+        "name": "semgrep/mcp",
+        "desc": "Servidor MCP do Semgrep para escanear codigo em busca de vulnerabilidades.",
+        "url": "github.com/semgrep/mcp",
+        "kind": "mcp",
+        "install": "claude mcp add semgrep -- uvx semgrep-mcp",
+        "use": "Peça: escaneie meu código em busca de vulnerabilidades com o Semgrep"
+      }
+    ]
+  },
+  {
+    "category": "Conteúdo, dados e mídia",
+    "color": "#fbbf24",
+    "items": [
+      {
+        "n": 114,
+        "rank": 1,
+        "name": "visual-skills",
+        "desc": "A skill TOP pra criar prompts de imagem e vídeo com IA. Escolhe o modelo certo e devolve o prompt pronto pra colar.",
+        "url": "github.com/smixs/visual-skills",
+        "kind": "skill",
+        "install": "claude install image.skill",
+        "use": "Peça: crie um prompt de imagem (ou vídeo) cinematográfico pra Nano Banana, Kling ou Veo"
+      },
+      {
+        "n": 98,
+        "rank": 2,
+        "name": "claude-office-skills",
+        "desc": "Skills para o Claude Code criarem e editarem documentos do Office (PPTX, DOCX, XLSX e PDF) com automacao.",
+        "url": "github.com/tfriedel/claude-office-skills",
+        "kind": "skill",
+        "install": "npx skills add github.com/tfriedel/claude-office-skills"
+      },
+      {
+        "n": 101,
+        "rank": 3,
+        "name": "Tavily MCP",
+        "desc": "Servidor MCP do Tavily, pronto para producao, com busca em tempo real, extracao, mapeamento e crawl da web.",
+        "url": "github.com/tavily-ai/tavily-mcp",
+        "kind": "mcp",
+        "install": "claude mcp add tavily -- npx tavily-mcp",
+        "use": "Peça: busque na web em tempo real e extraia o conteúdo dessas páginas"
+      }
+    ]
+  }
+]
