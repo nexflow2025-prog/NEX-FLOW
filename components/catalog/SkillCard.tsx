@@ -10,10 +10,11 @@ import { installCommand, useCommand, repoUrl, kindLabel } from "@/lib/skills";
 interface SkillCardProps {
   skill: Skill;
   color: string;
+  visualIndex: number;
   onCopy: (text: string, label: string) => void;
 }
 
-export function SkillCard({ skill, color, onCopy }: SkillCardProps) {
+export function SkillCard({ skill, color, visualIndex, onCopy }: SkillCardProps) {
   const install = installCommand(skill);
   const use = useCommand(skill);
   const repo = repoUrl(skill);
@@ -33,7 +34,7 @@ export function SkillCard({ skill, color, onCopy }: SkillCardProps) {
           className="font-[family-name:var(--font-heading)] text-sm font-extrabold"
           style={{ color }}
         >
-          #{skill.n}
+          #{visualIndex}
         </span>
         <div className="flex items-center gap-2">
           <span className="rounded px-1.5 py-0.5 font-[family-name:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-muted-foreground ring-1 ring-border">

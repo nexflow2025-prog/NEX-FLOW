@@ -44,8 +44,6 @@ export function SkillEditModal({
       try {
         await updateSkill(skill.id, formData);
 
-        const numero = Number(formData.get("numero"));
-        const rank = Number(formData.get("rank"));
         const nome = formData.get("nome") as string;
         const slug = formData.get("slug") as string;
         const descricao = formData.get("descricao") as string;
@@ -62,8 +60,7 @@ export function SkillEditModal({
 
         onSuccess({
           ...skill,
-          numero,
-          rank,
+          // numero e rank mantidos do objeto original (não editados)
           nome,
           slug,
           descricao,
@@ -99,34 +96,6 @@ export function SkillEditModal({
         </DialogHeader>
 
         <form onSubmit={handleSubmit} className="space-y-6 pt-4">
-          <div className="grid gap-4 sm:grid-cols-2">
-            <div>
-              <label className="mb-1 block text-sm text-muted-foreground">
-                Número
-              </label>
-              <Input
-                name="numero"
-                type="number"
-                required
-                defaultValue={skill.numero}
-                disabled={isPending}
-              />
-            </div>
-
-            <div>
-              <label className="mb-1 block text-sm text-muted-foreground">
-                Rank
-              </label>
-              <Input
-                name="rank"
-                type="number"
-                required
-                defaultValue={skill.rank}
-                disabled={isPending}
-              />
-            </div>
-          </div>
-
           <div>
             <label className="mb-1 block text-sm text-muted-foreground">
               Nome

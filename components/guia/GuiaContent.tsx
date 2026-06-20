@@ -3,10 +3,6 @@ import { ArrowLeft } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 
-interface GuiaContentProps {
-  adminPreview?: boolean;
-}
-
 const steps = [
   {
     n: 1,
@@ -43,7 +39,7 @@ const steps = [
       <>
         <p>
           No{" "}
-          <Link href="/explorer" className="text-[#ff6b73] underline underline-offset-2">
+          <Link href="/catalogo" className="text-[#ff6b73] underline underline-offset-2">
             catálogo NexSkills
           </Link>
           , navegue pelas trilhas (Escrever código, Automatizar, Design...) ou
@@ -119,17 +115,9 @@ const steps = [
   },
 ];
 
-export function GuiaContent({ adminPreview }: GuiaContentProps) {
+export function GuiaContent() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-10 pb-20 sm:px-6 lg:px-8">
-      <Link
-        href={adminPreview ? "/admin/skills" : "/membros"}
-        className="inline-flex items-center gap-1.5 font-[family-name:var(--font-mono)] text-xs text-muted-foreground transition-colors hover:text-[#ff6b73]"
-      >
-        <ArrowLeft className="size-3.5" />
-        {adminPreview ? "voltar para admin" : "voltar pra área de membros"}
-      </Link>
-
       <div className="mt-6 text-center">
         <span className="font-[family-name:var(--font-mono)] text-xs uppercase tracking-[0.2em] text-[#e62630]">
           Guia passo a passo
@@ -172,9 +160,7 @@ export function GuiaContent({ adminPreview }: GuiaContentProps) {
           asChild
           className="h-12 bg-[#e62630] px-8 font-[family-name:var(--font-mono)] text-sm font-bold text-white hover:bg-[#ff3a44]"
         >
-          <Link href={adminPreview ? "/admin/skills?preview=explorer" : "/dashboard"}>
-            {adminPreview ? "Ir pro catálogo (preview) →" : "Ir pro catálogo e começar →"}
-          </Link>
+          <Link href="/dashboard">Ir pro catálogo e começar →</Link>
         </Button>
       </div>
     </div>

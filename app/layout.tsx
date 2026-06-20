@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { Archivo, Manrope, JetBrains_Mono } from "next/font/google";
 
-import { Header } from "@/components/layout/Header";
+import { ConditionalHeader } from "@/components/layout/ConditionalHeader";
 import { Footer } from "@/components/layout/Footer";
 
 import { siteConfig } from "@/data/site";
@@ -43,7 +43,7 @@ export default function RootLayout({
       <body className="relative min-h-full overflow-x-hidden bg-background text-foreground">
         <div className="pointer-events-none fixed inset-0 -z-20 bg-glow" />
         <div className="pointer-events-none fixed inset-0 -z-10 bg-grid opacity-50 [mask-image:radial-gradient(circle_at_50%_0,#000,transparent_78%)]" />
-        <Header />
+        <ConditionalHeader />
         <main className="flex-1">{children}</main>
         <Footer />
       </body>

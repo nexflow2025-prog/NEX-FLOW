@@ -38,7 +38,7 @@ export function Header() {
             </span>
           </Link>
 
-          {isAdmin && pathname !== "/admin/skills" && (
+          {isAdmin && pathname !== "/admin/skills Diogo" && (
             <Button
               asChild
               variant="ghost"

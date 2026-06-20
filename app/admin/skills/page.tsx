@@ -2,12 +2,9 @@ import type { Metadata } from "next";
 import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
-import { ExplorerContent } from "@/components/explorer/ExplorerContent";
-import { GuiaContent } from "@/components/guia/GuiaContent";
 import { AdminSkillsGrid } from "@/components/admin/AdminSkillsGrid";
-import { MembrosContent } from "@/components/membros/MembrosContent";
+import { AppShell } from "@/components/layout/AppShell";
 import { requireAdmin } from "@/lib/admin";
-import { getCategoriesWithSkills } from "@/lib/skills-db";
 import type { AdminSkill, CategoryOption, TypeOption } from "@/types";
 
 export const metadata: Metadata = {
@@ -15,39 +12,8 @@ export const metadata: Metadata = {
   robots: "noindex, nofollow",
 };
 
-export default async function AdminSkillsPage({
-  searchParams,
-}: {
-  searchParams: Promise<{ preview?: string }>;
-}) {
+export default async function AdminSkillsPage() {
   const { supabase } = await requireAdmin();
-  const { preview } = await searchParams;
-
-  if (preview === "membros") {
-    return (
-      <div className="mx-auto max-w-4xl px-4 py-16 sm:px-6 lg:px-8">
-        <MembrosContent adminPreview />
-      </div>
-    );
-  }
-
-  if (preview === "explorer") {
-    const categories = await getCategoriesWithSkills();
-
-    return (
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <ExplorerContent categories={categories} />
-      </div>
-    );
-  }
-
-  if (preview === "guia") {
-    return (
-      <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-        <GuiaContent adminPreview />
-      </div>
-    );
-  }
 
   const [{ data: skills }, { data: categorias }, { data: tipos }] = await Promise.all([
     supabase
@@ -66,24 +32,26 @@ export default async function AdminSkillsPage({
   ]);
 
   return (
-    <div className="mx-auto w-[88vw] max-w-[1500px] px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-8 flex items-center justify-between">
-        <h1 className="font-[family-name:var(--font-heading)] text-4xl font-extrabold tracking-tight text-foreground">
+    <AppShell>
+      <div className="mx-auto w-[88vw] max-w-[1500px] px-4 py-16 sm:px-6 lg:px-8">
+        <h1 className="mb-8 font-[family-name:var(--font-heading)] text-4xl font-extrabold tracking-tight text-foreground">
           Gerenciar Skills
         </h1>
-        <Button
-          asChild
-          className="bg-[#e62630] text-white hover:bg-[#ff3a44]"
-        >
-          <Link href="/admin/skills/novo">+ Nova Skill</Link>
-        </Button>
-      </div>
 
-      <AdminSkillsGrid
-        skills={skills ?? []}
-        categorias={categorias ?? []}
-        tipos={tipos ?? []}
-      />
-    </div>
+        <AdminSkillsGrid
+          skills={skills ?? []}
+          categorias={categorias ?? []}
+          tipos={tipos ?? []}
+          headerAction={
+            <Button
+              asChild
+              className="bg-[#e62630] text-white hover:bg-[#ff3a44]"
+            >
+              <Link href="/admin/skills/novo">+ Nova Skill</Link>
+            </Button>
+          }
+        />
+      </div>
+    </AppShell>
   );
 }

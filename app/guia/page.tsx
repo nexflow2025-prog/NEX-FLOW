@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { redirect } from "next/navigation";
 
+import { AppShell } from "@/components/layout/AppShell";
 import { GuiaContent } from "@/components/guia/GuiaContent";
 import { createClient } from "@/lib/supabase/server";
 
@@ -17,5 +18,9 @@ export default async function GuidePage() {
     redirect("/entrar");
   }
 
-  return <GuiaContent />;
+  return (
+    <AppShell>
+      <GuiaContent />
+    </AppShell>
+  );
 }

@@ -6,7 +6,7 @@ import { getSession } from "@/lib/supabase/middleware";
 const PUBLIC_PATHS = ["/", "/entrar", "/pos-login"];
 
 const ADMIN_PREFIX = "/admin";
-const USER_HOME = "/explorer";
+const USER_HOME = "/catalogo";
 const ADMIN_HOME = "/admin/skills";
 
 export async function middleware(request: NextRequest) {
@@ -32,17 +32,12 @@ export async function middleware(request: NextRequest) {
 
   const isAdmin = profile?.papel === "ADMIN";
 
-  // 4. ADMIN fora de /admin/* é enviado para a home administrativa (/admin/skills).
-  if (isAdmin && !pathname.startsWith(ADMIN_PREFIX)) {
-    return NextResponse.redirect(new URL(ADMIN_HOME, request.url));
-  }
-
-  // 5. Usuário comum NÃO pode acessar /admin/*; manda para a área de membros.
+  // 4. Usuário comum NÃO pode acessar /admin/*; manda para a área de membros.
   if (!isAdmin && pathname.startsWith(ADMIN_PREFIX)) {
     return NextResponse.redirect(new URL(USER_HOME, request.url));
   }
 
-  // 6. Usuário comum em rota comum: libera.
+  // 5. Libera para qualquer usuário autenticado (admin ou não).
   return response;
 }
 

@@ -8,7 +8,7 @@ import { slugify } from "@/lib/skills";
 function revalidateSkillPaths() {
   revalidatePath("/admin/skills");
   revalidatePath("/membros");
-  revalidatePath("/explorer");
+  revalidatePath("/catalogo");
 }
 
 export async function createSkill(formData: FormData) {
@@ -71,8 +71,6 @@ export async function createSkill(formData: FormData) {
 export async function updateSkill(id: string, formData: FormData) {
   const supabase = await checkAdmin();
 
-  const numeroRaw = formData.get("numero") as string;
-  const rankRaw = formData.get("rank") as string;
   const nome = formData.get("nome") as string;
   const slug = formData.get("slug") as string;
   const descricao = formData.get("descricao") as string;
@@ -92,18 +90,22 @@ export async function updateSkill(id: string, formData: FormData) {
     throw new Error("Preencha todos os campos obrigatórios.");
   }
 
-  const numero = Number(numeroRaw);
-  const rank = Number(rankRaw);
+  // Busca numero e rank atuais para preservá-los (não editáveis pelo usuário)
+  const { data: current } = await supabase
+    .from("skills")
+    .select("numero, rank")
+    .eq("id", id)
+    .single();
 
-  if (Number.isNaN(numero) || Number.isNaN(rank)) {
-    throw new Error("Número e rank devem ser valores numéricos.");
+  if (!current) {
+    throw new Error("Skill não encontrada.");
   }
 
   const { error } = await supabase
     .from("skills")
     .update({
-      numero,
-      rank,
+      numero: current.numero,
+      rank: current.rank,
       nome,
       slug: slug || slugify(nome),
       descricao,

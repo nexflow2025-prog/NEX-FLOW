@@ -10,12 +10,14 @@ const TOP_N = 10;
 
 interface CategoryTrackProps {
   category: SkillCategory;
+  startIndex?: number;
   forceShowAll?: boolean;
   onCopy: (text: string, label: string) => void;
 }
 
 export function CategoryTrack({
   category,
+  startIndex = 0,
   forceShowAll = false,
   onCopy,
 }: CategoryTrackProps) {
@@ -42,11 +44,12 @@ export function CategoryTrack({
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((item) => (
+        {visible.map((item, index) => (
           <SkillCard
             key={item.n}
             skill={item}
             color={category.color}
+            visualIndex={startIndex + index + 1}
             onCopy={onCopy}
           />
         ))}

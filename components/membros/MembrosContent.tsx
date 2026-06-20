@@ -3,18 +3,14 @@ import { BookOpen, MessageCircle, Rocket } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
 
-interface MembrosContentProps {
-  adminPreview?: boolean;
-}
-
-export function MembrosContent({ adminPreview }: MembrosContentProps) {
+export function MembrosContent() {
   const cards = [
     {
       icon: BookOpen,
       title: "Catálogo de Skills",
       description:
         "As 114 skills curadas, por objetivo. Clique em instalar e cole o comando no Claude Code.",
-      href: adminPreview ? "/admin/skills?preview=explorer" : "/explorer",
+      href: "/catalogo",
       variant: "red" as const,
     },
     {
@@ -22,7 +18,7 @@ export function MembrosContent({ adminPreview }: MembrosContentProps) {
       title: "Guia passo a passo",
       description:
         "Como instalar o Claude Code e usar as skills do zero — mesmo se você está começando agora.",
-      href: adminPreview ? "/admin/skills?preview=guia" : "/guia",
+      href: "/guia",
       variant: "red" as const,
     },
     {

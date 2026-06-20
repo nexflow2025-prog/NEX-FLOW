@@ -4,6 +4,7 @@ import { notFound } from "next/navigation";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AppShell } from "@/components/layout/AppShell";
 import { requireAdmin } from "@/lib/admin";
 import type { AdminSkill, CategoryOption, TypeOption } from "@/types";
 import { updateSkill } from "../actions";
@@ -40,8 +41,9 @@ export default async function EditSkillPage({
   const updateSkillWithId = updateSkill.bind(null, skill.id);
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-8">
+    <AppShell>
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mb-8">
         <Link
           href="/admin/skills"
           className="text-sm text-muted-foreground hover:text-[#ff6b73]"
@@ -58,32 +60,6 @@ export default async function EditSkillPage({
         action={updateSkillWithId}
         className="space-y-6 rounded-2xl border border-border bg-card p-6"
       >
-        <div className="grid gap-4 sm:grid-cols-2">
-          <div>
-            <label className="mb-1 block text-sm text-muted-foreground">
-              Número
-            </label>
-            <Input
-              name="numero"
-              type="number"
-              required
-              defaultValue={skill.numero}
-            />
-          </div>
-
-          <div>
-            <label className="mb-1 block text-sm text-muted-foreground">
-              Rank
-            </label>
-            <Input
-              name="rank"
-              type="number"
-              required
-              defaultValue={skill.rank}
-            />
-          </div>
-        </div>
-
         <div>
           <label className="mb-1 block text-sm text-muted-foreground">
             Nome
@@ -231,5 +207,6 @@ export default async function EditSkillPage({
         </div>
       </form>
     </div>
+  </AppShell>
   );
 }

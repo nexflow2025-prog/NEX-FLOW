@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
+import { AppShell } from "@/components/layout/AppShell";
 import { requireAdmin } from "@/lib/admin";
 import type { CategoryOption, TypeOption } from "@/types";
 import { createSkill } from "../actions";
@@ -21,8 +22,9 @@ export default async function NewSkillPage() {
   ]);
 
   return (
-    <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
-      <div className="mb-8">
+    <AppShell>
+      <div className="mx-auto max-w-2xl px-4 py-16 sm:px-6 lg:px-8">
+        <div className="mb-8">
         <Link
           href="/admin/skills"
           className="text-sm text-muted-foreground hover:text-[#ff6b73]"
@@ -154,5 +156,6 @@ export default async function NewSkillPage() {
         </div>
       </form>
     </div>
+  </AppShell>
   );
 }

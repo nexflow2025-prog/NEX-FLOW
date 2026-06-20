@@ -140,14 +140,22 @@ export function ClientCatalog({ categories, mode }: ClientCatalogProps) {
             Nenhuma skill encontrada — tenta outro termo.
           </div>
         ) : (
-          filtered.map((category) => (
-            <CategoryTrack
-              key={category.category}
-              category={category}
-              forceShowAll={!!query || activeCategory !== "all"}
-              onCopy={handleCopy}
-            />
-          ))
+          filtered.map((category, catIndex) => {
+            // Número de skills em todas as categorias anteriores
+            const startIndex = filtered
+              .slice(0, catIndex)
+              .reduce((acc, c) => acc + c.items.length, 0);
+
+            return (
+              <CategoryTrack
+                key={category.category}
+                category={category}
+                startIndex={startIndex}
+                forceShowAll={!!query || activeCategory !== "all"}
+                onCopy={handleCopy}
+              />
+            );
+          })
         )}
       </div>
     </div>

@@ -15,6 +15,7 @@ interface AdminSkillsGridProps {
   skills: AdminSkill[];
   categorias: CategoryOption[];
   tipos: TypeOption[];
+  headerAction?: React.ReactNode;
 }
 
 interface GroupedCategory {
@@ -25,7 +26,7 @@ interface GroupedCategory {
   items: AdminSkill[];
 }
 
-export function AdminSkillsGrid({ skills, categorias, tipos }: AdminSkillsGridProps) {
+export function AdminSkillsGrid({ skills, categorias, tipos, headerAction }: AdminSkillsGridProps) {
   const [skillsList, setSkillsList] = useState<AdminSkill[]>(skills);
   const [selectedSkill, setSelectedSkill] = useState<AdminSkill | null>(null);
   const [query, setQuery] = useState("");
@@ -120,14 +121,18 @@ export function AdminSkillsGrid({ skills, categorias, tipos }: AdminSkillsGridPr
 
   return (
     <>
-      <div className="mb-8">
-        <SearchFilter
-          query={query}
-          onQueryChange={setQuery}
-          categories={categoryNames}
-          activeCategory={activeCategory}
-          onCategoryChange={setActiveCategory}
-        />
+      {/* Top bar: search + Nova Skill button */}
+      <div className="mb-6 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <div className="flex-1">
+          <SearchFilter
+            query={query}
+            onQueryChange={setQuery}
+            categories={categoryNames}
+            activeCategory={activeCategory}
+            onCategoryChange={setActiveCategory}
+          />
+        </div>
+        {headerAction && <div className="shrink-0">{headerAction}</div>}
       </div>
 
       {groupedCategories.length === 0 ? (
@@ -138,39 +143,48 @@ export function AdminSkillsGrid({ skills, categorias, tipos }: AdminSkillsGridPr
         </div>
       ) : (
         <div className="space-y-12">
-          {groupedCategories.map((category) => (
-            <section key={category.id}>
-              <div className="mb-4 flex items-center gap-3">
-                <span
-                  className="inline-block size-3 rounded-full"
-                  style={{ backgroundColor: category.cor }}
-                />
-                <h2
-                  className="font-[family-name:var(--font-heading)] text-2xl font-bold tracking-tight"
-                  style={{ color: category.cor }}
-                >
-                  {category.nome}
-                </h2>
-                <span className="rounded-full border border-border px-2 py-0.5 font-[family-name:var(--font-mono)] text-[10px] text-muted-foreground">
-                  {category.items.length}
-                </span>
-              </div>
+          {groupedCategories.map((category, catIndex) => {
+            // Número de skills em todas as categorias anteriores
+            const startIndex = groupedCategories
+              .slice(0, catIndex)
+              .reduce((acc, c) => acc + c.items.length, 0);
 
-              <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
-                {category.items.map((skill) => (
-                  <AdminSkillCard
-                    key={skill.id}
-                    skill={skill}
-                    color={category.cor}
-                    onEdit={() => setSelectedSkill(skill)}
-                    onDeleteSuccess={() => handleDeleteSuccess(skill.id)}
-                    onToggle={() => handleToggle(skill)}
-                    pendingToggle={pendingToggles}
-                  />
-                ))}
-              </div>
-            </section>
-          ))}
+            return (
+              <section key={category.id}>
+                {/* Category header — CategoryTrack style */}
+                <div
+                  className="mb-5 flex items-center justify-between gap-4 rounded-xl border border-border px-4 py-3.5 sm:px-5"
+                  style={{
+                    background: `linear-gradient(100deg, ${category.cor}22, transparent 72%)`,
+                  }}
+                >
+                  <h2
+                    className="font-[family-name:var(--font-heading)] text-2xl font-extrabold tracking-tight text-foreground sm:text-3xl"
+                  >
+                    {category.nome}
+                  </h2>
+                  <span className="font-[family-name:var(--font-mono)] text-xs text-[#ff6b73]">
+                    {category.items.length} skills
+                  </span>
+                </div>
+
+                <div className="grid grid-cols-1 gap-8 md:grid-cols-2 xl:grid-cols-3">
+                  {category.items.map((skill, index) => (
+                    <AdminSkillCard
+                      key={skill.id}
+                      skill={skill}
+                      color={category.cor}
+                      visualIndex={startIndex + index + 1}
+                      onEdit={() => setSelectedSkill(skill)}
+                      onDeleteSuccess={() => handleDeleteSuccess(skill.id)}
+                      onToggle={() => handleToggle(skill)}
+                      pendingToggle={pendingToggles}
+                    />
+                  ))}
+                </div>
+              </section>
+            );
+          })}
         </div>
       )}
 
@@ -193,6 +207,7 @@ export function AdminSkillsGrid({ skills, categorias, tipos }: AdminSkillsGridPr
 interface AdminSkillCardProps {
   skill: AdminSkill;
   color: string;
+  visualIndex: number;
   onEdit: () => void;
   onDeleteSuccess: () => void;
   onToggle: () => void;
@@ -202,6 +217,7 @@ interface AdminSkillCardProps {
 function AdminSkillCard({
   skill,
   color,
+  visualIndex,
   onEdit,
   onDeleteSuccess,
   onToggle,
@@ -230,7 +246,7 @@ function AdminSkillCard({
           className="font-[family-name:var(--font-heading)] text-sm font-extrabold"
           style={{ color }}
         >
-          #{skill.numero}
+          #{visualIndex}
         </span>
         <div className="flex items-center gap-2">
           <span className="rounded px-1.5 py-0.5 font-[family-name:var(--font-mono)] text-[10px] font-bold uppercase tracking-wider text-muted-foreground ring-1 ring-border">
