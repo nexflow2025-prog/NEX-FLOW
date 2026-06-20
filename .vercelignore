@@ -1,0 +1,35 @@
+# Dependências
+node_modules/
+
+# Build output
+.next/
+out/
+dist/
+build/
+
+# Ambiente local
+.env
+.env.local
+.env.*.local
+
+# Sistema
+.DS_Store
+*.log
+
+# Scripts de seed/admin (apenas dev local)
+scripts/
+
+# Arquivos temporários/debug
+debug-*.mjs
+debug-*.js
+auditar-*.mjs
+corrigir-*.mjs
+dev.db
+tsconfig.tsbuildinfo
+
+# Documentos internos
+*.MD
+README.md
+REBUILD.md
+CLAUDE.md
+AGENTS.md
