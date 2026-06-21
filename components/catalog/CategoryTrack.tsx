@@ -4,13 +4,15 @@ import { useState } from "react";
 
 import { Button } from "@/components/ui/button";
 import { SkillCard } from "./SkillCard";
-import type { SkillCategory } from "@/types";
+import type { Skill, SkillCategory } from "@/types";
 
 const TOP_N = 10;
+const PREVIEW_PER_CATEGORY = 3;
 
 interface CategoryTrackProps {
   category: SkillCategory;
   startIndex?: number;
+  mode?: "public" | "member";
   forceShowAll?: boolean;
   onCopy: (text: string, label: string) => void;
 }
@@ -18,13 +20,25 @@ interface CategoryTrackProps {
 export function CategoryTrack({
   category,
   startIndex = 0,
+  mode = "member",
   forceShowAll = false,
   onCopy,
 }: CategoryTrackProps) {
   const [expanded, setExpanded] = useState(false);
+
+  const isPublic = mode === "public";
   const showAll = forceShowAll || expanded;
-  const visible = showAll ? category.items : category.items.slice(0, TOP_N);
-  const hasMore = category.items.length > TOP_N;
+
+  const freeItems = isPublic
+    ? category.items.slice(0, PREVIEW_PER_CATEGORY)
+    : showAll
+      ? category.items
+      : category.items.slice(0, TOP_N);
+
+  const lockedItems: Skill[] = [];
+  const hasMore = isPublic
+    ? lockedItems.length > 0
+    : category.items.length > TOP_N && !showAll && !forceShowAll;
 
   return (
     <section className="mb-12">
@@ -39,12 +53,15 @@ export function CategoryTrack({
         </h3>
         <span className="font-[family-name:var(--font-mono)] text-xs text-[#ff6b73]">
           {category.items.length} skills
-          {!showAll && hasMore ? ` · top ${Math.min(TOP_N, category.items.length)}` : ""}
+          {!isPublic && !showAll && category.items.length > TOP_N
+            ? ` · top ${Math.min(TOP_N, category.items.length)}`
+            : ""}
+          {isPublic && ` · ${PREVIEW_PER_CATEGORY} liberadas`}
         </span>
       </div>
 
       <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3">
-        {visible.map((item, index) => (
+        {freeItems.map((item, index) => (
           <SkillCard
             key={item.n}
             skill={item}
@@ -53,9 +70,21 @@ export function CategoryTrack({
             onCopy={onCopy}
           />
         ))}
+
+        {!isPublic &&
+          lockedItems.map((item, index) => (
+            <SkillCard
+              key={item.n}
+              skill={item}
+              color={category.color}
+              visualIndex={startIndex + freeItems.length + index + 1}
+              onCopy={onCopy}
+              locked
+            />
+          ))}
       </div>
 
-      {!showAll && hasMore && (
+      {hasMore && (
         <Button
           variant="outline"
           size="sm"

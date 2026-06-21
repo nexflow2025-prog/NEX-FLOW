@@ -9,15 +9,25 @@ import { CategoryTrack } from "./CategoryTrack";
 import { BulkActions } from "./BulkActions";
 import { HowToPanel } from "./HowToPanel";
 import { StatsBadges } from "./StatsBadges";
+import { Button } from "@/components/ui/button";
 import type { SkillCategory } from "@/types";
-import { searchSkills, filterByCategory, countSkills } from "@/lib/skills";
+import { searchSkills, filterByCategory } from "@/lib/skills";
 
 interface ClientCatalogProps {
   categories: SkillCategory[];
   mode: "public" | "member";
+  totalSkills: number;
+  previewSkills: number;
+  remainingSkills: number;
 }
 
-export function ClientCatalog({ categories, mode }: ClientCatalogProps) {
+export function ClientCatalog({
+  categories,
+  mode,
+  totalSkills,
+  previewSkills,
+  remainingSkills,
+}: ClientCatalogProps) {
   const [query, setQuery] = useState("");
   const [activeCategory, setActiveCategory] = useState("all");
 
@@ -75,7 +85,7 @@ export function ClientCatalog({ categories, mode }: ClientCatalogProps) {
           {mode === "member" ? (
             <>
               Bem-vindo, membro! Aqui estão as{" "}
-              <strong className="text-foreground">114 skills completas</strong>
+              <strong className="text-foreground">{totalSkills} skills completas</strong>
               , organizadas por <strong className="text-foreground">objetivo</strong>.
               Cada uma com o que faz e o comando pronto pra instalar.
             </>
@@ -89,12 +99,32 @@ export function ClientCatalog({ categories, mode }: ClientCatalogProps) {
           )}
         </p>
 
-        <div className="mt-8">
+        <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <StatsBadges
-            totalSkills={countSkills(categories)}
+            totalSkills={totalSkills}
             totalCategories={categories.length}
+            previewSkills={previewSkills}
             mode={mode}
           />
+          {mode === "public" && (
+            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+              <Button
+                asChild
+                size="lg"
+                className="h-14 whitespace-nowrap bg-[#e62630] px-6 font-[family-name:var(--font-mono)] text-base font-bold text-white transition-colors hover:bg-[#ff3a44]"
+              >
+                <Link href="/#oferta">Liberar acesso por R$ 27</Link>
+              </Button>
+              <Button
+                asChild
+                variant="outline"
+                size="lg"
+                className="h-14 whitespace-nowrap border-border bg-transparent px-6 font-[family-name:var(--font-mono)] text-base font-bold text-foreground transition-colors hover:border-[#e62630] hover:text-[#ff6b73]"
+              >
+                <Link href="/">Voltar para início</Link>
+              </Button>
+            </div>
+          )}
         </div>
       </header>
 
@@ -103,27 +133,9 @@ export function ClientCatalog({ categories, mode }: ClientCatalogProps) {
       {mode === "member" ? (
         <BulkActions categories={categories} onCopy={handleCopy} />
       ) : (
-        <div className="mb-6 flex flex-col gap-4 rounded-2xl border border-[#e62630]/30 bg-gradient-to-r from-[#e62630]/15 to-transparent p-5 sm:flex-row sm:items-center sm:justify-between">
-          <div>
-            <h5 className="font-[family-name:var(--font-heading)] text-base font-bold text-foreground">
-              🔓 Faltam +90 skills pra você
-            </h5>
-            <p className="mt-1 text-sm text-muted-foreground">
-              Esta é só a amostra. Libere as{" "}
-              <code className="rounded bg-black/40 px-1 py-0.5 font-[family-name:var(--font-mono)] text-[#ff6b73]">
-                114 skills completas
-              </code>{" "}
-              + guia + comunidade por <strong className="text-foreground">R$ 27</strong>{" "}
-              (acesso vitalício, 7 dias de garantia).
-            </p>
-          </div>
-          <Link
-            href="/"
-            className="inline-flex h-9 shrink-0 items-center justify-center rounded-lg bg-[#e62630] px-4 font-[family-name:var(--font-mono)] text-sm font-bold text-white transition-colors hover:bg-[#ff3a44]"
-          >
-            Liberar tudo por R$ 27 →
-          </Link>
-        </div>
+        <p className="mb-6 text-sm text-muted-foreground">
+          🔓 Faltam +{remainingSkills} skills pra você. Libere as {totalSkills} skills completas + guia + comunidade.
+        </p>
       )}
 
       <SearchFilter
@@ -151,6 +163,7 @@ export function ClientCatalog({ categories, mode }: ClientCatalogProps) {
                 key={category.category}
                 category={category}
                 startIndex={startIndex}
+                mode={mode}
                 forceShowAll={!!query || activeCategory !== "all"}
                 onCopy={handleCopy}
               />

@@ -5,17 +5,20 @@ import { CategoriesProof } from "@/components/marketing/CategoriesProof";
 import { OfferSection } from "@/components/marketing/OfferSection";
 import { FaqSection } from "@/components/marketing/FaqSection";
 import { FinalCta } from "@/components/marketing/FinalCta";
+import { getTotalSkillsCount } from "@/lib/skills-db";
 
-export default function HomePage() {
+export default async function HomePage() {
+  const totalSkills = await getTotalSkillsCount();
+
   return (
     <>
-      <Hero />
+      <Hero totalSkills={totalSkills} />
       <ProblemSection />
-      <FeaturesSection />
+      <FeaturesSection totalSkills={totalSkills} />
       <CategoriesProof />
-      <OfferSection />
+      <OfferSection totalSkills={totalSkills} />
       <FaqSection />
-      <FinalCta />
+      <FinalCta totalSkills={totalSkills} />
     </>
   );
 }

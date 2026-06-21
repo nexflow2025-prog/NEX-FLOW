@@ -1,18 +1,21 @@
-import Link from "next/link";
 import { Check } from "lucide-react";
 
-import { Button } from "@/components/ui/button";
 import { siteConfig } from "@/data/site";
+import { CheckoutButton } from "@/components/marketing/CheckoutButton";
 
-const benefits = [
-  "Acesso completo às 114 skills curadas",
-  "Atualizações vitalícias (skills novas pra sempre)",
-  "Guia de instalação e uso passo a passo",
-  "Suporte e comunidade exclusiva",
-  "Comando pronto: copiar, colar e usar",
-];
+interface OfferSectionProps {
+  totalSkills: number;
+}
 
-export function OfferSection() {
+export function OfferSection({ totalSkills }: OfferSectionProps) {
+  const benefits = [
+    `Acesso completo às ${totalSkills} skills curadas`,
+    "Atualizações vitalícias (skills novas pra sempre)",
+    "Guia de instalação e uso passo a passo",
+    "Suporte e comunidade exclusiva",
+    "Comando pronto: copiar, colar e usar",
+  ];
+
   return (
     <section id="oferta" className="px-4 py-16 sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl text-center">
@@ -57,15 +60,7 @@ export function OfferSection() {
           ))}
         </ul>
 
-        <Button
-          asChild
-          size="lg"
-          className="relative mt-8 h-14 w-full bg-[#e62630] font-[family-name:var(--font-mono)] text-base font-bold text-white hover:bg-[#ff3a44]"
-        >
-          <Link href={siteConfig.checkoutUrl} target="_blank" rel="noopener">
-            Quero liberar minhas 114 skills →
-          </Link>
-        </Button>
+        <CheckoutButton totalSkills={totalSkills} />
 
         <p className="relative mt-5 flex items-center justify-center gap-2 font-[family-name:var(--font-mono)] text-xs text-muted-foreground">
           🔒 Compra segura · acesso imediato · 🛡️ {siteConfig.guaranteeDays}{" "}

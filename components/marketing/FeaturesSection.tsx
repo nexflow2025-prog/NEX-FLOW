@@ -1,33 +1,37 @@
 import { Zap, Infinity, BookOpen, MessageCircle } from "lucide-react";
 
-const features = [
-  {
-    icon: Zap,
-    title: "114 skills que funcionam",
-    description:
-      "Testei uma por uma. Só entrou no catálogo o que instala de verdade e vale a pena. Você não cai mais em link quebrado.",
-  },
-  {
-    icon: Infinity,
-    title: "Skills novas pra sempre",
-    description:
-      "Toda semana surge coisa nova. Você paga uma vez e recebe as próximas pra sempre — sem mensalidade, sem pagar de novo.",
-  },
-  {
-    icon: BookOpen,
-    title: "Guia do absoluto zero",
-    description:
-      "Nunca mexeu no Claude Code? Sem problema. O guia te leva do \"não sei nada\" ao \"instalei minha primeira skill\" em minutos.",
-  },
-  {
-    icon: MessageCircle,
-    title: "Grupo no WhatsApp",
-    description:
-      "Travou? Pergunta no grupo. Quer uma skill que não tem? Pede. Você não fica sozinho na frente da tela.",
-  },
-];
+interface FeaturesSectionProps {
+  totalSkills: number;
+}
 
-export function FeaturesSection() {
+export function FeaturesSection({ totalSkills }: FeaturesSectionProps) {
+  const features = [
+    {
+      icon: Zap,
+      title: `${totalSkills} skills que funcionam`,
+      description:
+        "Testei uma por uma. Só entrou no catálogo o que instala de verdade e vale a pena. Você não cai mais em link quebrado.",
+    },
+    {
+      icon: Infinity,
+      title: "Skills novas pra sempre",
+      description:
+        "Toda semana surge coisa nova. Você paga uma vez e recebe as próximas pra sempre — sem mensalidade, sem pagar de novo.",
+    },
+    {
+      icon: BookOpen,
+      title: "Guia do absoluto zero",
+      description:
+        'Nunca mexeu no Claude Code? Sem problema. O guia te leva do "não sei nada" ao "instalei minha primeira skill" em minutos.',
+    },
+    {
+      icon: MessageCircle,
+      title: "Grupo no WhatsApp",
+      description:
+        "Travou? Pergunta no grupo. Quer uma skill que não tem? Pede. Você não fica sozinho na frente da tela.",
+    },
+  ];
+
   return (
     <section className="px-4 py-16 text-center sm:px-6 lg:px-8">
       <div className="mx-auto max-w-5xl">
@@ -40,7 +44,7 @@ export function FeaturesSection() {
           Você só <span className="text-[#ff3a44]">copia e cola</span>.
         </h2>
         <p className="mx-auto mt-5 max-w-2xl text-base text-muted-foreground">
-          O NexSkills é a sua central pronta: as 114 melhores skills, cada uma
+          O NexSkills é a sua central pronta: as {totalSkills} melhores skills, cada uma
           explicada em português e com o comando na mão. Sem garimpo, sem erro,
           sem inglês difícil.
         </p>

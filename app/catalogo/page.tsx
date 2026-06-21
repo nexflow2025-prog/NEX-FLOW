@@ -1,10 +1,14 @@
 import type { Metadata } from "next";
-import { redirect } from "next/navigation";
 
 import { AppShell } from "@/components/layout/AppShell";
 import { ExplorerContent } from "@/components/explorer/ExplorerContent";
 import { Toaster } from "@/components/ui/sonner";
 import { getCategoriesWithSkills } from "@/lib/skills-db";
+import {
+  countSkills,
+  countPreviewSkills,
+  countRemainingSkills,
+} from "@/lib/skills";
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
@@ -12,22 +16,60 @@ export const metadata: Metadata = {
   description: "Catálogo completo NexSkills — skills do Claude Code.",
 };
 
-export default async function CatalogoPage() {
+interface CatalogoPageProps {
+  searchParams: Promise<{ preview?: string }> | { preview?: string };
+}
+
+export default async function CatalogoPage({ searchParams }: CatalogoPageProps) {
+  const params = await searchParams;
+  const forcePreview = params.preview === "1";
+
   const supabase = await createClient();
   const {
     data: { user },
   } = await supabase.auth.getUser();
 
-  if (!user) {
-    redirect("/entrar");
+  let canAccessAll = false;
+
+  if (user) {
+    const { data: profile } = await supabase
+      .from("perfis")
+      .select("papel, acesso_liberado")
+      .eq("id", user.id)
+      .single();
+
+    canAccessAll =
+      profile?.papel === "ADMIN" || profile?.acesso_liberado === true;
   }
 
   const categories = await getCategoriesWithSkills();
 
-  return (
-    <AppShell>
-      <ExplorerContent categories={categories} />
+  const totalSkills = countSkills(categories);
+  const previewSkills = countPreviewSkills(categories);
+  const remainingSkills = countRemainingSkills(categories);
+
+  const mode = forcePreview ? "public" : canAccessAll ? "member" : "public";
+
+  const catalog = (
+    <>
+      <ExplorerContent
+        categories={categories}
+        mode={mode}
+        totalSkills={totalSkills}
+        previewSkills={previewSkills}
+        remainingSkills={remainingSkills}
+      />
       <Toaster position="bottom-right" />
-    </AppShell>
+    </>
+  );
+
+  if (mode === "member") {
+    return <AppShell>{catalog}</AppShell>;
+  }
+
+  return (
+    <div className="min-h-screen bg-background">
+      {catalog}
+    </div>
   );
 }

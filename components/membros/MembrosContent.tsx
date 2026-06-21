@@ -3,13 +3,17 @@ import { BookOpen, MessageCircle, Rocket } from "lucide-react";
 
 import { siteConfig } from "@/data/site";
 
-export function MembrosContent() {
+interface MembrosContentProps {
+  totalSkills: number;
+}
+
+export function MembrosContent({ totalSkills }: MembrosContentProps) {
   const cards = [
     {
       icon: BookOpen,
       title: "Catálogo de Skills",
       description:
-        "As 114 skills curadas, por objetivo. Clique em instalar e cole o comando no Claude Code.",
+        `As ${totalSkills} skills curadas, por objetivo. Clique em instalar e cole o comando no Claude Code.`,
       href: "/catalogo",
       variant: "red" as const,
     },

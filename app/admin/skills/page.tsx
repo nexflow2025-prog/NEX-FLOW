@@ -34,14 +34,20 @@ export default async function AdminSkillsPage() {
   return (
     <AppShell>
       <div className="mx-auto w-[88vw] max-w-[1500px] px-4 py-16 sm:px-6 lg:px-8">
-        <h1 className="mb-8 font-[family-name:var(--font-heading)] text-4xl font-extrabold tracking-tight text-foreground">
-          Gerenciar Skills
-        </h1>
+        <div className="mb-8 flex items-baseline gap-4">
+          <h1 className="font-[family-name:var(--font-heading)] text-4xl font-extrabold tracking-tight text-foreground">
+            Gerenciar Skills
+          </h1>
+          <span className="rounded-full border border-border px-3 py-1 font-[family-name:var(--font-mono)] text-xs text-muted-foreground">
+            {skills?.length ?? 0} cadastradas
+          </span>
+        </div>
 
         <AdminSkillsGrid
           skills={skills ?? []}
           categorias={categorias ?? []}
           tipos={tipos ?? []}
+          totalCount={skills?.length ?? 0}
           headerAction={
             <Button
               asChild

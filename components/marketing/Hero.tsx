@@ -2,9 +2,12 @@ import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
-import { siteConfig } from "@/data/site";
 
-export function Hero() {
+interface HeroProps {
+  totalSkills: number;
+}
+
+export function Hero({ totalSkills }: HeroProps) {
   return (
     <section className="relative px-4 pt-20 pb-16 text-center sm:px-6 lg:px-8">
       <div className="mx-auto max-w-4xl">
@@ -27,7 +30,7 @@ export function Hero() {
           <strong className="text-foreground">
             mas só com as skills certas instaladas
           </strong>
-          . Eu testei centenas e separei as {siteConfig.totalSkills} melhores,
+          . Eu testei centenas e separei as {totalSkills} melhores,
           com o comando pronto pra colar.
         </p>
 
@@ -37,16 +40,26 @@ export function Hero() {
             size="lg"
             className="h-14 gap-2 bg-[#e62630] px-8 font-[family-name:var(--font-mono)] text-base font-bold text-white shadow-[0_0_0_1px_rgba(230,38,48,0.4),0_14px_40px_rgba(230,38,48,0.25)] transition-all hover:bg-[#ff3a44] hover:shadow-[0_0_0_1px_rgba(230,38,48,0.6),0_18px_50px_rgba(230,38,48,0.4)]"
           >
-            <Link href="/entrar">
+            <Link href="/#oferta">
               Liberar <ArrowRight className="size-4" />
             </Link>
           </Button>
 
+          <Button
+            asChild
+            variant="outline"
+            size="lg"
+            className="h-14 gap-2 border-border bg-transparent px-8 font-[family-name:var(--font-mono)] text-base font-bold text-foreground hover:border-[#e62630] hover:text-[#ff6b73]"
+          >
+            <Link href="/catalogo?preview=1">
+              Espiar o catálogo <ArrowRight className="size-4" />
+            </Link>
+          </Button>
         </div>
 
         <div className="mt-10 flex flex-wrap items-center justify-center gap-8 sm:gap-10">
           {[
-            { value: siteConfig.totalSkills, label: "skills curadas" },
+            { value: totalSkills, label: "skills curadas" },
             { value: 6, label: "objetivos" },
             { value: "100%", label: "com link real" },
             { value: "∞", label: "acesso vitalício" },

@@ -15,6 +15,7 @@ interface AdminSkillsGridProps {
   skills: AdminSkill[];
   categorias: CategoryOption[];
   tipos: TypeOption[];
+  totalCount: number;
   headerAction?: React.ReactNode;
 }
 
@@ -26,7 +27,7 @@ interface GroupedCategory {
   items: AdminSkill[];
 }
 
-export function AdminSkillsGrid({ skills, categorias, tipos, headerAction }: AdminSkillsGridProps) {
+export function AdminSkillsGrid({ skills, categorias, tipos, totalCount, headerAction }: AdminSkillsGridProps) {
   const [skillsList, setSkillsList] = useState<AdminSkill[]>(skills);
   const [selectedSkill, setSelectedSkill] = useState<AdminSkill | null>(null);
   const [query, setQuery] = useState("");

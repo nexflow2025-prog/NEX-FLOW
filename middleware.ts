@@ -3,7 +3,7 @@ import { type NextRequest, NextResponse } from "next/server";
 import { getSession } from "@/lib/supabase/middleware";
 
 // Rotas que qualquer pessoa pode acessar, logada ou não.
-const PUBLIC_PATHS = ["/", "/entrar", "/pos-login"];
+const PUBLIC_PATHS = ["/", "/entrar", "/pos-login", "/auth/callback", "/catalogo"];
 
 const ADMIN_PREFIX = "/admin";
 const USER_HOME = "/catalogo";
@@ -12,6 +12,9 @@ const ADMIN_HOME = "/admin/skills";
 export async function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
   const { user, response, supabase } = await getSession(request);
+
+  console.log("[middleware] pathname:", pathname);
+  console.log("[middleware] user:", user?.id);
 
   // 1. Rotas públicas sempre liberadas.
   if (PUBLIC_PATHS.includes(pathname)) {

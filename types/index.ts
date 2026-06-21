@@ -25,8 +25,6 @@ export interface SiteConfig {
   whatsappUrl: string;
   price: number;
   oldPrice: number;
-  totalSkills: number;
-  sampleSkills: number;
   guaranteeDays: number;
 }
 

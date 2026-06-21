@@ -12,7 +12,7 @@ import { LoginModal } from "@/components/auth/LoginModal";
 import { cn } from "@/lib/utils";
 
 const nav = [
-  { label: "Catálogo", href: "/explorer" },
+  { label: "Catálogo", href: "/catalogo" },
   { label: "Área de membros", href: "/membros" },
   { label: "Guia", href: "/guia" },
 ];
@@ -63,7 +63,7 @@ export function Header() {
           ) : isAdmin ? null : (
             <>
               {nav
-                .filter((item) => !(isMembros && (item.href === "/explorer" || item.href === "/membros")))
+                .filter((item) => !(isMembros && (item.href === "/catalogo" || item.href === "/membros")))
                 .map((item) => (
                   <Button
                     key={item.href}
@@ -126,7 +126,7 @@ export function Header() {
                     </LoginModal>
                   ) : (
                     nav
-                      .filter((item) => !(isMembros && (item.href === "/explorer" || item.href === "/membros")))
+                      .filter((item) => !(isMembros && (item.href === "/catalogo" || item.href === "/membros")))
                       .map((item) => (
                         <Link
                           key={item.href}

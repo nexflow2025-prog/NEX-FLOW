@@ -18,3 +18,11 @@ auditar-*.mjs
 corrigir-*.mjs
 dev.db
 tsconfig.tsbuildinfo
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+client_secret_*.json
+*.client_secret.json

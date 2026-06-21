@@ -73,3 +73,17 @@ export function filterByCategory(
 export function countSkills(categories: SkillCategory[]): number {
   return categories.reduce((sum, category) => sum + category.items.length, 0);
 }
+
+export function countPreviewSkills(
+  categories: SkillCategory[],
+  previewPerCategory: number = 3
+): number {
+  return categories.reduce(
+    (sum, category) => sum + Math.min(previewPerCategory, category.items.length),
+    0
+  );
+}
+
+export function countRemainingSkills(categories: SkillCategory[]): number {
+  return countSkills(categories) - countPreviewSkills(categories);
+}

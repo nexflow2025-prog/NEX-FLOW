@@ -9,7 +9,5 @@ export const siteConfig: SiteConfig = {
   whatsappUrl: "",
   price: 27,
   oldPrice: 197,
-  totalSkills: 114,
-  sampleSkills: 24,
   guaranteeDays: 7,
 };

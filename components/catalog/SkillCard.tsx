@@ -1,6 +1,7 @@
 "use client";
 
-import { ExternalLink, Copy, Play } from "lucide-react";
+import Link from "next/link";
+import { ExternalLink, Copy, Play, Lock } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import type { Skill } from "@/types";
@@ -12,16 +13,22 @@ interface SkillCardProps {
   color: string;
   visualIndex: number;
   onCopy: (text: string, label: string) => void;
+  locked?: boolean;
 }
 
-export function SkillCard({ skill, color, visualIndex, onCopy }: SkillCardProps) {
+export function SkillCard({ skill, color, visualIndex, onCopy, locked = false }: SkillCardProps) {
   const install = installCommand(skill);
   const use = useCommand(skill);
   const repo = repoUrl(skill);
   const type = kindLabel[skill.kind];
 
   return (
-    <article className="group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-[#101013] p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[#e62630]/55 hover:shadow-[0_0_0_1px_rgba(230,38,48,0.15),0_18px_50px_rgba(0,0,0,0.5)]">
+    <article
+      className={cn(
+        "group relative flex flex-col overflow-hidden rounded-2xl border border-border bg-gradient-to-br from-card to-[#101013] p-5 transition-all duration-200 hover:-translate-y-1 hover:border-[#e62630]/55 hover:shadow-[0_0_0_1px_rgba(230,38,48,0.15),0_18px_50px_rgba(0,0,0,0.5)]",
+        locked && "opacity-80"
+      )}
+    >
       <div
         className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-250 group-hover:opacity-100"
         style={{
@@ -56,7 +63,19 @@ export function SkillCard({ skill, color, visualIndex, onCopy }: SkillCardProps)
       </p>
 
       <div className="relative z-10 mt-5 flex items-center gap-2">
-        {install ? (
+        {locked ? (
+          <>
+            <Lock className="size-4 text-muted-foreground" />
+            <span className="text-xs text-muted-foreground">Acesso restrito</span>
+            <Button
+              size="sm"
+              className="ml-auto h-8 gap-1.5 bg-[#e62630] px-3 text-xs font-bold text-white hover:bg-[#ff3a44]"
+              asChild
+            >
+              <Link href="/#oferta">Liberar acesso completo</Link>
+            </Button>
+          </>
+        ) : install ? (
           <>
             <Button
               size="sm"

@@ -1,21 +1,21 @@
-import { siteConfig } from "@/data/site";
-
 interface StatsBadgesProps {
-  totalSkills?: number;
-  totalCategories?: number;
+  totalSkills: number;
+  totalCategories: number;
+  previewSkills?: number;
   mode?: "public" | "member";
 }
 
 export function StatsBadges({
   totalSkills,
   totalCategories,
+  previewSkills,
   mode = "public",
 }: StatsBadgesProps) {
   const items = [
-    { value: totalSkills ?? siteConfig.totalSkills, label: "skills verificadas" },
-    { value: totalCategories ?? 6, label: "objetivos" },
+    { value: totalSkills, label: "skills verificadas" },
+    { value: totalCategories, label: "objetivos" },
     mode === "public"
-      ? { value: "100%", label: "com link real" }
+      ? { value: previewSkills ?? 0, label: "skills liberadas na amostra" }
       : { value: "∞", label: "acesso vitalício" },
   ];
 
