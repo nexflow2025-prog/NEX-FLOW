@@ -1,4 +1,5 @@
 import { createClient as createServerClient } from "@/lib/supabase/server";
+import { createServiceClient } from "@/lib/supabase/service";
 import type { SkillCategory, Skill, SkillDbRow, SkillKind } from "@/types";
 
 function normalizeRelation<T>(value: T | T[] | null | undefined): T | null {
@@ -100,4 +101,38 @@ export async function getAllCategories(): Promise<
 
   if (error) throw error;
   return data || [];
+}
+
+
+export async function getCatalogStats(): Promise<{
+  totalSkills: number;
+  previewSkills: number;
+  remainingSkills: number;
+}> {
+  const supabase = createServiceClient();
+
+  const [totalResult, previewResult] = await Promise.all([
+    supabase
+      .from("skills")
+      .select("*", { count: "exact", head: true })
+      .eq("ativo", true),
+
+    supabase
+      .from("skills")
+      .select("*", { count: "exact", head: true })
+      .eq("ativo", true)
+      .eq("mostrar_no_preview", true),
+  ]);
+
+  if (totalResult.error) throw totalResult.error;
+  if (previewResult.error) throw previewResult.error;
+
+  const totalSkills = totalResult.count ?? 0;
+  const previewSkills = previewResult.count ?? 0;
+
+  return {
+    totalSkills,
+    previewSkills,
+    remainingSkills: totalSkills - previewSkills,
+  };
 }

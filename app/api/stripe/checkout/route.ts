@@ -21,6 +21,7 @@ export async function POST(request: Request) {
 
     const session = await getStripe().checkout.sessions.create({
       mode: "payment",
+      payment_method_types: ["card"],
       line_items: [
         {
           price: process.env.STRIPE_PRICE_ID!,

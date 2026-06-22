@@ -17,13 +17,13 @@ export function useUser() {
     async function checkAdmin(userId: string) {
       const { data: profile } = await supabase
         .from("perfis")
-        .select("papel")
+        .select("role")
         .eq("id", userId)
         .single();
 
       if (!mounted) return;
 
-      setIsAdmin(profile?.papel === "ADMIN");
+      setIsAdmin(profile?.role === "ADMIN");
     }
 
     async function getUser() {

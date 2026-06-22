@@ -63,7 +63,7 @@ export function ClientCatalog({
 
   return (
     <div className="mx-auto max-w-7xl px-4 py-10 sm:px-6 lg:px-8">
-      <header className="mb-10">
+      <header className="mb-10 text-center">
         <span className="inline-flex items-center gap-2.5 rounded-full border border-[#e62630]/35 bg-[#e62630]/10 px-4 py-2 font-[family-name:var(--font-mono)] text-[11px] uppercase tracking-[0.22em] text-[#ff6b73]">
           <span className="inline-block size-1.5 rounded-full bg-[#e62630] shadow-[0_0_12px_#e62630]" />
           {mode === "member"
@@ -81,7 +81,7 @@ export function ClientCatalog({
           a central de skills do Claude Code
         </p>
 
-        <p className="mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
+        <p className="mx-auto mt-5 max-w-2xl text-lg leading-relaxed text-muted-foreground">
           {mode === "member" ? (
             <>
               Bem-vindo, membro! Aqui estão as{" "}
@@ -99,21 +99,22 @@ export function ClientCatalog({
           )}
         </p>
 
-        <div className="mt-8 flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="mt-8 flex flex-col items-center justify-center gap-3.5">
           <StatsBadges
             totalSkills={totalSkills}
             totalCategories={categories.length}
             previewSkills={previewSkills}
+            remainingSkills={remainingSkills}
             mode={mode}
           />
           {mode === "public" && (
-            <div className="flex flex-col gap-3 sm:flex-row lg:shrink-0">
+            <div className="flex flex-col justify-center gap-3 sm:flex-row">
               <Button
                 asChild
                 size="lg"
                 className="h-14 whitespace-nowrap bg-[#e62630] px-6 font-[family-name:var(--font-mono)] text-base font-bold text-white transition-colors hover:bg-[#ff3a44]"
               >
-                <Link href="/#oferta">Liberar acesso por R$ 27</Link>
+                <Link href="/#oferta">Liberar acesso por R$ 27,00</Link>
               </Button>
               <Button
                 asChild

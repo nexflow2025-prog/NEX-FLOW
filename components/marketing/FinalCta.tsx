@@ -6,9 +6,13 @@ import { siteConfig } from "@/data/site";
 
 interface FinalCtaProps {
   totalSkills: number;
+  remainingSkills: number;
 }
 
-export function FinalCta({ totalSkills }: FinalCtaProps) {
+export function FinalCta({ totalSkills, remainingSkills }: FinalCtaProps) {
+  const priceFormatted = String(siteConfig.price).includes(",")
+    ? String(siteConfig.price)
+    : `${siteConfig.price},00`;
   return (
     <section className="px-4 py-20 text-center sm:px-6 lg:px-8">
       <div className="mx-auto max-w-3xl">
@@ -19,7 +23,7 @@ export function FinalCta({ totalSkills }: FinalCtaProps) {
           <span className="text-[#ff3a44]">Claude Code inteiro</span>.
         </h2>
         <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-muted-foreground sm:text-lg">
-          Por R$ {siteConfig.price} — menos que uma pizza — você para de garimpar e
+          Por R$ {priceFormatted} — menos que uma pizza — você para de garimpar e
           libera de uma vez tudo o que a ferramenta consegue fazer. Com{" "}
           {siteConfig.guaranteeDays} dias de garantia: ou você ama, ou devolvemos
           seu dinheiro.
@@ -30,7 +34,7 @@ export function FinalCta({ totalSkills }: FinalCtaProps) {
           className="mt-8 h-14 gap-2 bg-[#e62630] px-8 font-[family-name:var(--font-mono)] text-base font-bold text-white shadow-[0_0_0_1px_rgba(230,38,48,0.4),0_14px_40px_rgba(230,38,48,0.25)] transition-all hover:bg-[#ff3a44] hover:shadow-[0_0_0_1px_rgba(230,38,48,0.6),0_18px_50px_rgba(230,38,48,0.4)]"
         >
           <Link href="#oferta">
-            Liberar minhas {totalSkills} skills por R$ {siteConfig.price} <ArrowRight className="size-4" />
+            Liberar minhas {remainingSkills} skills premium por R$ {priceFormatted} <ArrowRight className="size-4" />
           </Link>
         </Button>
         <p className="mt-4 font-[family-name:var(--font-mono)] text-xs text-muted-foreground">

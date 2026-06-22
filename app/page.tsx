@@ -5,20 +5,31 @@ import { CategoriesProof } from "@/components/marketing/CategoriesProof";
 import { OfferSection } from "@/components/marketing/OfferSection";
 import { FaqSection } from "@/components/marketing/FaqSection";
 import { FinalCta } from "@/components/marketing/FinalCta";
-import { getTotalSkillsCount } from "@/lib/skills-db";
+import { getAllCategories, getCatalogStats } from "@/lib/skills-db";
 
 export default async function HomePage() {
-  const totalSkills = await getTotalSkillsCount();
+  const [stats, categories] = await Promise.all([
+    getCatalogStats(),
+    getAllCategories(),
+  ]);
+
+  const { totalSkills, previewSkills, remainingSkills } = stats;
+  const totalCategories = categories.length;
 
   return (
     <>
-      <Hero totalSkills={totalSkills} />
+      <Hero
+        totalSkills={totalSkills}
+        totalCategories={totalCategories}
+        previewSkills={previewSkills}
+        remainingSkills={remainingSkills}
+      />
       <ProblemSection />
       <FeaturesSection totalSkills={totalSkills} />
       <CategoriesProof />
-      <OfferSection totalSkills={totalSkills} />
+      <OfferSection totalSkills={totalSkills} remainingSkills={remainingSkills} />
       <FaqSection />
-      <FinalCta totalSkills={totalSkills} />
+      <FinalCta totalSkills={totalSkills} remainingSkills={remainingSkills} />
     </>
   );
 }

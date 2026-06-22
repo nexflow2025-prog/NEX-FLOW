@@ -14,11 +14,11 @@ export async function requireAdmin() {
 
   const { data: profile } = await supabase
     .from("perfis")
-    .select("papel")
+    .select("role")
     .eq("id", user.id)
     .single();
 
-  if (profile?.papel !== "ADMIN") {
+  if (profile?.role !== "ADMIN") {
     redirect("/");
   }
 
@@ -37,11 +37,11 @@ export async function checkAdmin() {
 
   const { data: profile } = await supabase
     .from("perfis")
-    .select("papel")
+    .select("role")
     .eq("id", user.id)
     .single();
 
-  if (profile?.papel !== "ADMIN") {
+  if (profile?.role !== "ADMIN") {
     throw new Error("Acesso negado");
   }
 

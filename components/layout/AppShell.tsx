@@ -13,13 +13,13 @@ async function getCurrentUser() {
 
   const { data: profile } = await supabase
     .from("perfis")
-    .select("papel")
+    .select("role")
     .eq("id", user.id)
     .single();
 
   return {
     user,
-    isAdmin: profile?.papel === "ADMIN",
+    isAdmin: profile?.role === "ADMIN",
     email: user.email ?? "",
     nome: (user.user_metadata?.name as string | undefined) ?? user.email ?? "",
   };

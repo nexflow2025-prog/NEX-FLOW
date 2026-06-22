@@ -56,7 +56,7 @@ export function LoginModal({ children }: LoginModalProps) {
     setEmailLoading(false);
     setOpen(false);
 
-    window.location.href = "/membros";
+    window.location.href = "/pos-login";
   };
 
   const handleGoogleSignIn = async () => {

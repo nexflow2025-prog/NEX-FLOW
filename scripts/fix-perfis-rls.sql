@@ -14,7 +14,7 @@ AS $$
     SELECT 1
     FROM public.perfis
     WHERE id = user_id
-      AND papel = 'ADMIN'
+      AND role = 'ADMIN'
   );
 $$;
 

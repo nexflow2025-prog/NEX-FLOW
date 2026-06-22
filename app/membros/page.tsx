@@ -30,11 +30,11 @@ export default async function MembersPage() {
 
   const { data: profile } = await supabase
     .from("perfis")
-    .select("papel, acesso_liberado")
+    .select("role, acesso_liberado")
     .eq("id", user.id)
     .single();
 
-  const isAdmin = profile?.papel === "ADMIN";
+  const isAdmin = profile?.role === "ADMIN";
 
   if (!isAdmin && profile?.acesso_liberado !== true) {
     redirect("/#oferta");

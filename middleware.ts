@@ -26,14 +26,14 @@ export async function middleware(request: NextRequest) {
     return NextResponse.redirect(new URL("/entrar", request.url));
   }
 
-  // 3. Busca o papel do usuário logado.
+  // 3. Busca o role do usuário logado.
   const { data: profile } = await supabase
     .from("perfis")
-    .select("papel")
+    .select("role")
     .eq("id", user.id)
     .single();
 
-  const isAdmin = profile?.papel === "ADMIN";
+  const isAdmin = profile?.role === "ADMIN";
 
   // 4. Usuário comum NÃO pode acessar /admin/*; manda para a área de membros.
   if (!isAdmin && pathname.startsWith(ADMIN_PREFIX)) {

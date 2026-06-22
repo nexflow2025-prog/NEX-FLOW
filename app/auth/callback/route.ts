@@ -37,5 +37,5 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  return NextResponse.redirect(new URL("/membros", request.url));
+  return NextResponse.redirect(new URL("/pos-login", request.url));
 }

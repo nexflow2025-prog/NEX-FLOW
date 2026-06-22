@@ -3,12 +3,8 @@ import type { Metadata } from "next";
 import { AppShell } from "@/components/layout/AppShell";
 import { ExplorerContent } from "@/components/explorer/ExplorerContent";
 import { Toaster } from "@/components/ui/sonner";
-import { getCategoriesWithSkills } from "@/lib/skills-db";
-import {
-  countSkills,
-  countPreviewSkills,
-  countRemainingSkills,
-} from "@/lib/skills";
+import { getCatalogStats, getCategoriesWithSkills } from "@/lib/skills-db";
+
 import { createClient } from "@/lib/supabase/server";
 
 export const metadata: Metadata = {
@@ -34,21 +30,22 @@ export default async function CatalogoPage({ searchParams }: CatalogoPageProps) 
   if (user) {
     const { data: profile } = await supabase
       .from("perfis")
-      .select("papel, acesso_liberado")
+      .select("role, acesso_liberado")
       .eq("id", user.id)
       .single();
 
     canAccessAll =
-      profile?.papel === "ADMIN" || profile?.acesso_liberado === true;
+      profile?.role === "ADMIN" || profile?.acesso_liberado === true;
   }
 
-  const categories = await getCategoriesWithSkills();
-
-  const totalSkills = countSkills(categories);
-  const previewSkills = countPreviewSkills(categories);
-  const remainingSkills = countRemainingSkills(categories);
-
   const mode = forcePreview ? "public" : canAccessAll ? "member" : "public";
+
+  const [categories, stats] = await Promise.all([
+    getCategoriesWithSkills({ previewOnly: mode === "public" }),
+    getCatalogStats(),
+  ]);
+
+  const { totalSkills, previewSkills, remainingSkills } = stats;
 
   const catalog = (
     <>

@@ -38,7 +38,7 @@ async function createAdmin() {
     const { error: profileError } = await supabase.from("perfis").insert({
       id: data.user.id,
       nome: "Administrador",
-      papel: "ADMIN",
+      role: "ADMIN",
     });
 
     if (profileError) throw profileError;

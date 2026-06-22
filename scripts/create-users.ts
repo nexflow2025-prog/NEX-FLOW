@@ -14,13 +14,13 @@ const users = [
     email: "nexflow@gmail.com",
     password: "nex2025@",
     name: "Usuário NexFlow",
-    papel: "USER",
+    role: "USER",
   },
   {
     email: "nexflowburiti@gmail.com",
     password: "nexflow2025@",
     name: "Admin NexFlow",
-    papel: "ADMIN",
+    role: "ADMIN",
   },
 ];
 
@@ -46,7 +46,7 @@ async function createUsers() {
       const { error: profileError } = await supabase.from("perfis").insert({
         id: data.user.id,
         nome: user.name,
-        papel: user.papel,
+        role: user.role,
       });
 
       if (profileError) {
@@ -55,7 +55,7 @@ async function createUsers() {
       }
     }
 
-    console.log(`Usuário criado: ${user.email} (${user.papel})`);
+    console.log(`Usuário criado: ${user.email} (${user.role})`);
   }
 }
 

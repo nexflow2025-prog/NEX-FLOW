@@ -5,9 +5,13 @@ import { CheckoutButton } from "@/components/marketing/CheckoutButton";
 
 interface OfferSectionProps {
   totalSkills: number;
+  remainingSkills: number;
 }
 
-export function OfferSection({ totalSkills }: OfferSectionProps) {
+export function OfferSection({ totalSkills, remainingSkills }: OfferSectionProps) {
+  const priceFormatted = String(siteConfig.price).includes(",")
+    ? String(siteConfig.price)
+    : `${siteConfig.price},00`;
   const benefits = [
     `Acesso completo às ${totalSkills} skills curadas`,
     "Atualizações vitalícias (skills novas pra sempre)",
@@ -42,7 +46,7 @@ export function OfferSection({ totalSkills }: OfferSectionProps) {
           <small className="mt-2 text-2xl font-semibold text-muted-foreground sm:text-3xl">
             R$
           </small>
-          {siteConfig.price}
+          {priceFormatted}
         </div>
         <p className="relative mt-2 font-[family-name:var(--font-mono)] text-sm text-[#ff6b73]">
           pagamento único · preço de lançamento (sobe em breve)
@@ -60,7 +64,10 @@ export function OfferSection({ totalSkills }: OfferSectionProps) {
           ))}
         </ul>
 
-        <CheckoutButton totalSkills={totalSkills} />
+        <CheckoutButton
+          totalSkills={remainingSkills}
+          label={`Quero liberar minhas ${remainingSkills} skills premium →`}
+        />
 
         <p className="relative mt-5 flex items-center justify-center gap-2 font-[family-name:var(--font-mono)] text-xs text-muted-foreground">
           🔒 Compra segura · acesso imediato · 🛡️ {siteConfig.guaranteeDays}{" "}
